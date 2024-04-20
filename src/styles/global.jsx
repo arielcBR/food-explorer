@@ -13,12 +13,17 @@ export const GlobalStyled = createGlobalStyle`
   }
 
   body {
-    /* background-color: ${({ theme }) => theme['gray-800']};
-    color: ${({ theme }) => theme['gray-100']}; */
+    background-color: ${({ theme }) => theme['gray-800']};
+    color: ${({ theme }) => theme['gray-100']}; 
     -webkit-font-smoothing: antialiased;
   }
 
   body, input-security, textarea, button {
-    /* font: 400 1rem Roboto, sans-serif; */
+    font: 400 1rem ${({ theme }) => theme.fonts.roboto}, sans-serif;
   }
+
+  input, button, textarea {
+    border: none;
+  }
+
 `

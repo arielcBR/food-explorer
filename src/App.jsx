@@ -2,12 +2,14 @@ import { ThemeProvider } from 'styled-components'
 import { defaultTheme } from './styles/theme/default'
 import { GlobalStyled } from './styles/global'
 
+import { SignUp } from './pages/SignUp'
+
 export function App() {
   return (
     <ThemeProvider theme={defaultTheme}>
       <GlobalStyled />
 
-      <h1>Hello!</h1>
+      <SignUp />
     </ThemeProvider>
   )
 }
