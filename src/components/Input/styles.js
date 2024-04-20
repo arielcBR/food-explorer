@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 export const InputWrapper = styled.div`
   display: flex;
@@ -14,6 +14,12 @@ export const InputStyled = styled.input`
   color: ${({ theme }) => theme.colors['light-500']};
   padding: 0.75rem 0.875rem;
   width: 100%;
+
+  ${({ errorMessage }) =>
+    errorMessage &&
+    css`
+      border: 1px solid ${({ theme }) => theme.colors['tomato-200']};
+    `}
 `
 export const ErrorMessage = styled.div`
   color: ${({ theme }) => theme.colors['tomato-200']};

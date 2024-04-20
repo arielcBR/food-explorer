@@ -19,6 +19,7 @@ export function Input({
         placeholder={placeholder}
         id={id}
         name={name}
+        errorMessage={errorMessage && true}
         {...rest}
       />
       <ErrorMessage>{errorMessage}</ErrorMessage>
