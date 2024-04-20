@@ -3,7 +3,7 @@ import { ThemeProvider } from 'styled-components'
 import { defaultTheme } from './styles/theme/default'
 import { GlobalStyled } from './styles/global'
 
-import { SignUp } from './pages/SignUp'
+import { SignIn } from './pages/SignIn'
 
 export function App() {
   return (
@@ -11,7 +11,7 @@ export function App() {
       <ThemeProvider theme={defaultTheme}>
         <GlobalStyled />
 
-        <SignUp />
+        <SignIn />
       </ThemeProvider>
     </BrowserRouter>
   )
