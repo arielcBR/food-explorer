@@ -7,14 +7,14 @@ import { LinkWithText } from '../../components/LinkWithText'
 export function SignUp() {
   return (
     <SignUpContainer>
-      <Logo />
+      <Logo size="l" />
       <CompleteSignUp>
         <Input
           labelText="Seu nome"
           name="name"
           type="text"
           placeholder="Exemplo: Maria da Silva"
-          minlength="2"
+          minLength="2"
           required
         />
         <Input
@@ -28,7 +28,7 @@ export function SignUp() {
           labelText="Senha"
           name="password"
           type="password"
-          minlength="6"
+          minLength="6"
           placeholder="No mínimo 6 caracteres"
           required
         />

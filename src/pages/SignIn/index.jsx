@@ -7,7 +7,7 @@ import { LinkWithText } from '../../components/LinkWithText'
 export function SignIn() {
   return (
     <SignUpContainer>
-      <Logo />
+      <Logo size="l" />
       <CompleteSignUp>
         <Input
           labelText="Email"

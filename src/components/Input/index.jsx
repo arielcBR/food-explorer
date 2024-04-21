@@ -1,12 +1,11 @@
 import { Label } from '../Label'
-import { InputWrapper, InputStyled, ErrorMessage } from './styles'
+import { InputWrapper, InputStyled } from './styles'
 
 export function Input({
   placeholder,
   name,
   labelText,
   type = 'text',
-  errorMessage,
   ...rest
 }) {
   const id = name
@@ -19,10 +18,8 @@ export function Input({
         placeholder={placeholder}
         id={id}
         name={name}
-        errorMessage={errorMessage && true}
         {...rest}
       />
-      <ErrorMessage>{errorMessage}</ErrorMessage>
     </InputWrapper>
   )
 }
