@@ -48,5 +48,6 @@ export const defaultTheme = {
     'text-regular-3': '1.25rem',
     'text-regular-2': '1rem',
     'text-regular-1': '0.875rem',
+    'text-regular-0': '0.75rem',
   },
 }
