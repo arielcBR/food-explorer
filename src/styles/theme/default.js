@@ -35,6 +35,7 @@ export const defaultTheme = {
   fonts: {
     poppins: "'Poppins'",
     roboto: "'Roboto'",
+    dmSans: "'DM Sans'",
   },
   textSizes: {
     'title-5': '2.5rem',

@@ -5,42 +5,28 @@ export const LogoContainer = styled(Link)`
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  gap: 0.5rem;
 
   cursor: pointer;
   text-decoration: none;
 
-  ${({ size }) =>
-    size === 'sm'
-      ? css`
-          gap: 0.5rem;
-        `
-      : css`
-          gap: 0.67125rem;
-        `}
-
   img {
-    ${({ size }) =>
-      size === 'sm'
-        ? css`
-            width: 24px;
-          `
-        : css`
-            width: 24px;
-          `}
+    width: 22px;
   }
 
   span {
-    color: ${({ theme }) => theme.colors['light-100']};
     font-family: ${({ theme }) => theme.fonts.roboto};
     font-weight: 700;
 
-    ${({ size }) =>
-      size === 'sm'
+    ${({ variant }) =>
+      variant === 'header'
         ? css`
-            font-size: 1.3275rem;
+            font-size: 1.3518rem;
+            color: ${({ theme }) => theme.colors['light-100']};
           `
         : css`
-            font-size: 2.3275rem;
+            font-size: 0.953875rem;
+            color: ${({ theme }) => theme.colors['light-700']};
           `}
   }
 `

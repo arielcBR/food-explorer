@@ -1,0 +1,22 @@
+[
+  {
+    "image": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=60",
+    "name": "Salada Ravanello",
+    "price": 39.97
+  },
+  {
+    "image": "https://images.unsplash.com/photo-1510693206972-df098062cb71?q=60",
+    "name": "Lasagna Bolognesa",
+    "price": 65.29
+  },
+  {
+    "image": "https://plus.unsplash.com/premium_photo-1663012872761-33dd73e292cc?q=60",
+    "name": "T-bone",
+    "price": 74.99
+  },
+  {
+    "image": "https://images.unsplash.com/photo-1619926096619-5956ab4dfb1b?q=60",
+    "name": "Empanada de Carne",
+    "price": 8.99
+  }
+]

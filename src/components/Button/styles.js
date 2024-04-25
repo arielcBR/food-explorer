@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 export const ButtonContainer = styled.button`
   display: flex;
@@ -13,7 +13,6 @@ export const ButtonContainer = styled.button`
   font-family: ${({ theme }) => theme.fonts.poppins};
   font-size: ${({ theme }) => theme.textSizes['text-regular-1']};
   font-weight: 500;
-  line-height: 24px;
   padding: 0.75rem;
   width: 100%;
 
@@ -22,7 +21,15 @@ export const ButtonContainer = styled.button`
   }
 
   &:disabled {
+    background: ${({ theme }) => theme.colors['tomato-400']};
     cursor: not-allowed;
     opacity: 0.6;
   }
+
+  ${({ size }) =>
+    size === 'sm' &&
+    css`
+      padding: 0.75rem 1.5rem;
+      height: 2rem;
+    `}
 `

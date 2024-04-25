@@ -1,11 +1,11 @@
 import { LogoContainer } from './styles'
 import logoImage from '../../assets/logo.svg'
 
-export function Logo({ size = 'sm' }) {
+export function Logo({ variant = 'header' }) {
   return (
-    <LogoContainer to="/" size={size}>
+    <LogoContainer to="/" variant={variant}>
       <img src={logoImage} alt="Logo poligono de cor azul" />
-      <span>food Explorer</span>
+      <span>food explorer</span>
     </LogoContainer>
   )
 }

@@ -7,7 +7,7 @@ import { LinkWithText } from '../../components/LinkWithText'
 export function SignUp() {
   return (
     <SignUpContainer>
-      <Logo size="l" />
+      <Logo variant="header" />
       <CompleteSignUp>
         <Input
           labelText="Seu nome"

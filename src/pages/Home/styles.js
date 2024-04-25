@@ -5,7 +5,6 @@ export const HomeContainer = styled.div`
 
   max-width: 26.75rem;
   margin: 0 auto;
-  height: 100vh;
   width: 100%;
 `
 

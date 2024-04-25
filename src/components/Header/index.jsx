@@ -12,7 +12,7 @@ export function Header() {
     <HeaderContainer>
       <HeaderContent>
         <List size={32} />
-        <Logo />
+        <Logo variant="header" />
         <OrderWrapper>
           <Receipt size={32} />
           <AmountOfOrders>5</AmountOfOrders>
