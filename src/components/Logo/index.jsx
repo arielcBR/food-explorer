@@ -1,10 +1,14 @@
 import { LogoContainer } from './styles'
-import logoImage from '../../assets/logo.svg'
+import logoHeader from '../../assets/logo.svg'
+import logoFooter from '../../assets/logo-footer.svg'
 
 export function Logo({ variant = 'header' }) {
   return (
     <LogoContainer to="/" variant={variant}>
-      <img src={logoImage} alt="Logo poligono de cor azul" />
+      <img
+        src={variant === 'header' ? logoHeader : logoFooter}
+        alt="Logo poligono"
+      />
       <span>food explorer</span>
     </LogoContainer>
   )

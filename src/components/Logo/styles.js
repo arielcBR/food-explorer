@@ -12,6 +12,12 @@ export const LogoContainer = styled(Link)`
 
   img {
     width: 22px;
+
+    ${({ variant }) =>
+      variant === 'footer' &&
+      css`
+        color: ${({ theme }) => theme.colors['light-700']};
+      `}
   }
 
   span {
