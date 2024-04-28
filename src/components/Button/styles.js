@@ -32,4 +32,11 @@ export const ButtonContainer = styled.button`
       padding: 0.75rem 1.5rem;
       height: 2rem;
     `}
+
+  ${({ size }) =>
+    size === 'm' &&
+    css`
+      padding: 0.75rem 1.5rem;
+      height: 3rem;
+    `}
 `

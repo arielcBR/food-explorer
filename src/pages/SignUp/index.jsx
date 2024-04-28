@@ -33,7 +33,7 @@ export function SignUp() {
           required
         />
 
-        <Button type="submit" text="Criar Conta" />
+        <Button type="submit" text="Criar Conta" size="m" />
 
         <LinkWithText to="/signIn" text="Já tenho uma conta" />
       </CompleteSignUp>

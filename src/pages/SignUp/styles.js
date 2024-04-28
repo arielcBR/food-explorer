@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 export const SignUpContainer = styled.div`
+  background: ${({ theme }) => theme.colors['dark-400']};
   max-width: 26.75rem;
   padding: 9.875rem 2.9375rem 0 4.0625rem;
   margin: 0 auto;

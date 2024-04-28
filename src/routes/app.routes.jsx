@@ -8,9 +8,9 @@ import { DefaultLayout } from '../Layouts/DefaultLayout'
 export function AppRoutes() {
   return (
     <Routes>
+      <Route path="/signUp" element={<SignUp />} />
+      <Route path="/signIn" element={<SignIn />} />
       <Route path="/" element={<DefaultLayout />}>
-        <Route path="/signUp" element={<SignUp />} />
-        <Route path="/signIn" element={<SignIn />} />
         <Route path="/" element={<Home />} />
       </Route>
     </Routes>

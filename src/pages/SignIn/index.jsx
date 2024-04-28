@@ -25,7 +25,7 @@ export function SignIn() {
           required
         />
 
-        <Button type="submit" text="Entrar" />
+        <Button type="submit" text="Entrar" size="m" />
 
         <LinkWithText to="/signUp" text="Criar uma conta" />
       </CompleteSignUp>
