@@ -2,7 +2,7 @@ import { SignUpContainer, CompleteSignUp } from './styles'
 import { Input } from '../../components/Input'
 import { Logo } from '../../components/Logo'
 import { Button } from '../../components/Button'
-import { LinkWithText } from '../../components/LinkWithText'
+import { CustomLink } from '../../components/CustomLink'
 
 export function SignUp() {
   return (
@@ -35,7 +35,7 @@ export function SignUp() {
 
         <Button type="submit" text="Criar Conta" size="m" />
 
-        <LinkWithText to="/signIn" text="Já tenho uma conta" />
+        <CustomLink to="/signIn" text="Já tenho uma conta" />
       </CompleteSignUp>
     </SignUpContainer>
   )

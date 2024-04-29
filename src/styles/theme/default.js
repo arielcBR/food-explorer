@@ -43,12 +43,12 @@ export const defaultTheme = {
     'title-3': '1.5rem',
     'title-2': '1.25rem',
     'title-1': '0.875rem',
-    'text-regular-6': '2.625rem',
-    'text-regular-5': '2rem',
-    'text-regular-4': '1.5rem',
-    'text-regular-3': '1.25rem',
-    'text-regular-2': '1rem',
-    'text-regular-1': '0.875rem',
-    'text-regular-0': '0.75rem',
+    'text-regular-6': '2.625rem', // 42px
+    'text-regular-5': '2rem', // 32px
+    'text-regular-4': '1.5rem', // 24px
+    'text-regular-3': '1.25rem', // 20px
+    'text-regular-2': '1rem', // 16px
+    'text-regular-1': '0.875rem', // 14px
+    'text-regular-0': '0.75rem', // 12px
   },
 }
