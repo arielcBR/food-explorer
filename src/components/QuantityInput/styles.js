@@ -1,7 +1,6 @@
 import styled, { css } from 'styled-components'
 
 export const QuantityInputContainer = styled.div`
-  flex: 1;
   background: ${({ theme }) => theme.colors['dark-200']};
 
   display: flex;

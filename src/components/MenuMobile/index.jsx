@@ -5,6 +5,8 @@ import { Footer } from '../Footer'
 import { MagnifyingGlass, X } from 'phosphor-react'
 
 export function MenuMobile() {
+  const isAdmin = true
+
   return (
     <MenuMobileContainer>
       <Header>
@@ -19,6 +21,11 @@ export function MenuMobile() {
         />
         <nav>
           <ul>
+            {isAdmin && (
+              <li>
+                <CustomLink to="#" text="Novo prato" />
+              </li>
+            )}
             <li>
               <CustomLink text="Sair" />
             </li>

@@ -3,15 +3,16 @@ import {
   PlateContainer,
   PlateDetails,
   IngredientTagsWrapper,
+  StyledButton,
   PlateFooter,
 } from './styles'
 import { Receipt } from 'phosphor-react'
 import { CustomLink } from '../../components/CustomLink'
 import { IngredientTag } from './components/IngredientTag'
 import { QuantityInput } from '../../components/QuantityInput'
-import { Button } from '../../components/Button'
 
 export function Plate() {
+  const isAdmin = true
   // const params = useParams()
   // const plateId = params.id
 
@@ -38,8 +39,14 @@ export function Plate() {
         </IngredientTagsWrapper>
       </PlateDetails>
       <PlateFooter>
-        <QuantityInput />
-        <Button size="m" icon={<Receipt />} text="Pedir - R$ 25,00" />
+        {isAdmin ? (
+          <StyledButton size="m" text="Editar prato" />
+        ) : (
+          <>
+            <QuantityInput />
+            <StyledButton size="m" icon={<Receipt />} text="Pedir - R$ 25,00" />
+          </>
+        )}
       </PlateFooter>
     </PlateContainer>
   )

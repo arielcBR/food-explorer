@@ -25,8 +25,8 @@ export const defaultTheme = {
     'tomato-400': '#AB4D55',
     'carrot-100': '#FBA94C',
     'mint-100': '#04D361',
-    'cake-100': '#82F3FF',
-    'cake-200': '#065E7C',
+    'cake-100': '#065E7C',
+    'cake-200': '#82F3FF',
 
     'gradient-100':
       'linear-gradient(90deg, rgba(0, 10, 15, 0.27) 0%, #000A0F 100%)',

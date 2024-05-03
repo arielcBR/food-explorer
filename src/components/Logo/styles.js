@@ -35,4 +35,9 @@ export const LogoContainer = styled(Link)`
             color: ${({ theme }) => theme.colors['light-700']};
           `}
   }
+
+  p {
+    font-size: ${({ theme }) => theme.textSizes['text-regular-0']};
+    color: ${({ theme }) => theme.colors['cake-200']};
+  }
 `

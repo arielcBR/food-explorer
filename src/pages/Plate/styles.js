@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { Button } from '../../components/Button'
 
 export const PlateContainer = styled.div`
   display: flex;
@@ -49,11 +50,12 @@ export const IngredientTagsWrapper = styled.div`
   gap: 1.5rem;
 `
 
+export const StyledButton = styled(Button)`
+  flex: 1;
+`
+
 export const PlateFooter = styled.div`
   display: flex;
   gap: 1rem;
-
-  > button {
-    width: 11.75rem;
-  }
+  width: 100%;
 `

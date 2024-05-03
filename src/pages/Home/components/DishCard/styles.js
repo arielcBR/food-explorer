@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
 export const DishCardContainer = styled.div`
@@ -12,10 +13,15 @@ export const DishCardContainer = styled.div`
   margin-bottom: 1.5rem;
   padding: 1.5rem;
   position: relative;
+  height: 292px;
   width: 210px;
+
+  .hidden {
+    display: none;
+  }
 `
 
-export const FavoriteIconWrapper = styled.div`
+export const FavoriteIconWrapper = styled(Link)`
   cursor: pointer;
   position: absolute;
   top: 1rem;
@@ -46,5 +52,5 @@ export const DishImage = styled.img`
   width: 88px;
 `
 export const DishPrice = styled.p`
-  color: ${({ theme }) => theme.colors['cake-100']};
+  color: ${({ theme }) => theme.colors['cake-200']};
 `
