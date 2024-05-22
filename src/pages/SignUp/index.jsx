@@ -1,4 +1,5 @@
 import { SignUpContainer, CompleteSignUp } from './styles'
+import { Label } from '../../components/Label'
 import { Input } from '../../components/Input'
 import { Logo } from '../../components/Logo'
 import { Button } from '../../components/Button'
@@ -7,31 +8,38 @@ import { CustomLink } from '../../components/CustomLink'
 export function SignUp() {
   return (
     <SignUpContainer>
-      <Logo variant="header" />
+      <Logo />
       <CompleteSignUp>
-        <Input
-          labelText="Seu nome"
-          name="name"
-          type="text"
-          placeholder="Exemplo: Maria da Silva"
-          minLength="2"
-          required
-        />
-        <Input
-          labelText="Email"
-          name="email"
-          type="email"
-          placeholder="Exemplo: exemplo@exemplo.com.br"
-          required
-        />
-        <Input
-          labelText="Senha"
-          name="password"
-          type="password"
-          minLength="6"
-          placeholder="No mínimo 6 caracteres"
-          required
-        />
+        <div>
+          <Label htmlFor="name" text="Seu nome" />
+          <Input
+            name="name"
+            type="text"
+            placeholder="Exemplo: Maria da Silva"
+            required
+          />
+        </div>
+
+        <div>
+          <Label htmlFor="email" text="Email" />
+          <Input
+            name="email"
+            type="email"
+            placeholder="Exemplo: exemplo@exemplo.com.br"
+            required
+          />
+        </div>
+
+        <div>
+          <Label htmlFor="password" text="Senha" />
+          <Input
+            name="password"
+            type="password"
+            minLength="6"
+            placeholder="No mínimo 6 caracteres"
+            required
+          />
+        </div>
 
         <Button type="submit" text="Criar Conta" size="m" />
 

@@ -5,7 +5,7 @@ import { Footer } from '../Footer'
 import { MagnifyingGlass, X } from 'phosphor-react'
 
 export function MenuMobile() {
-  const isAdmin = true
+  const isAdmin = false
 
   return (
     <MenuMobileContainer>

@@ -22,7 +22,15 @@ export const SignUpContainer = styled.div`
 export const CompleteSignUp = styled.form`
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
+  gap: 2rem;
 
   margin-top: 4.5625rem;
+
+  > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 0.5rem;
+  }
 `

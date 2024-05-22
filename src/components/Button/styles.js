@@ -14,6 +14,7 @@ export const ButtonContainer = styled.button`
   font-size: ${({ theme }) => theme.textSizes['text-regular-1']};
   font-weight: 500;
   padding: 0.75rem;
+  white-space: nowrap;
   width: 100%;
 
   &:not(:disabled):hover {

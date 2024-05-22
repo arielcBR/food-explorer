@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
 export const FooterContainer = styled.footer`
   display: flex;
@@ -14,9 +15,24 @@ export const FooterContainer = styled.footer`
     width: 142px;
   }
 
-  > span {
+  > p {
     color: ${({ theme }) => theme.colors['light-200']};
     font-family: ${({ theme }) => theme.fonts.dmSans};
-    font-size: 0.75rem;
+    font-weight: 400;
+    font-size: ${({ theme }) => theme.textSizes['text-regular-0']};
+  }
+`
+export const LogoFooter = styled(Link)`
+  display: flex;
+  align-items: center;
+  gap: 6.5px;
+
+  text-decoration: none;
+
+  > span {
+    color: ${({ theme }) => theme.colors['light-700']};
+    font-family: ${({ theme }) => theme.fonts.roboto};
+    font-weight: 700;
+    font-size: ${({ theme }) => theme.textSizes['text-regular-2']};
   }
 `

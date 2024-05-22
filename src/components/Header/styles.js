@@ -15,6 +15,10 @@ export const HeaderContent = styled.div`
     color: ${({ theme }) => theme.colors['light-100']};
     cursor: pointer;
   }
+
+  a {
+    flex: 1;
+  }
 `
 
 export const OrderWrapper = styled.div`

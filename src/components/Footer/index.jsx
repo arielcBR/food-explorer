@@ -1,11 +1,14 @@
-import { FooterContainer } from './styles'
-import { Logo } from '../../components/Logo'
+import { FooterContainer, LogoFooter } from './styles'
+import logoFooter from '../../assets/logo-footer.svg'
 
 export function Footer() {
   return (
     <FooterContainer className="container">
-      <Logo variant="footer" />
-      <span>© 2023 - Todos os direitos reservados.</span>
+      <LogoFooter>
+        <img src={logoFooter} alt="" />
+        <span>Food explorer</span>
+      </LogoFooter>
+      <p>© 2023 - Todos os direitos reservados.</p>
     </FooterContainer>
   )
 }

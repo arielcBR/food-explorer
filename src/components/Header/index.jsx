@@ -8,15 +8,19 @@ import { Logo } from '../../components/Logo'
 import { Receipt, List } from 'phosphor-react'
 
 export function Header() {
+  const isAdmin = false
+
   return (
     <HeaderContainer>
       <HeaderContent>
         <List size={32} />
-        <Logo variant="header" />
-        <OrderWrapper>
-          <Receipt size={32} />
-          <AmountOfOrders>5</AmountOfOrders>
-        </OrderWrapper>
+        <Logo />
+        {!isAdmin && (
+          <OrderWrapper>
+            <Receipt size={32} />
+            <AmountOfOrders>5</AmountOfOrders>
+          </OrderWrapper>
+        )}
       </HeaderContent>
     </HeaderContainer>
   )

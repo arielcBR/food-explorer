@@ -27,6 +27,7 @@ export const BannerImage = styled.div`
 export const BannerText = styled.div`
   display: flex;
   flex-direction: column;
+  gap: 0.1875rem;
 
   color: ${({ theme }) => theme.colors['light-300']};
   font-family: ${({ theme }) => theme.fonts.poppins};
@@ -34,7 +35,7 @@ export const BannerText = styled.div`
   width: 13.5rem;
 
   > h2 {
-    font-size: ${({ theme }) => theme.textSizes['text-regular-3']};
+    font-size: 1.125rem;
     font-weight: 600;
   }
 

@@ -1,18 +1,16 @@
-import { LogoContainer } from './styles'
+import { LogoLink, LogoContainer } from './styles'
 import logoHeader from '../../assets/logo.svg'
-import logoFooter from '../../assets/logo-footer.svg'
 
-export function Logo({ variant = 'header' }) {
-  const isAdmin = true
+export function Logo() {
+  const isAdmin = false
 
   return (
-    <LogoContainer to="/" variant={variant}>
-      <img
-        src={variant === 'header' ? logoHeader : logoFooter}
-        alt="Logo poligono"
-      />
-      <span>food explorer</span>
-      {isAdmin && variant === 'header' && <p>admin</p>}
-    </LogoContainer>
+    <LogoLink to="/">
+      <LogoContainer>
+        <img src={logoHeader} alt="Logo poligono" />
+        <span>food explorer</span>
+        {isAdmin && <p>admin</p>}
+      </LogoContainer>
+    </LogoLink>
   )
 }

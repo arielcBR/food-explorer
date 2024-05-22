@@ -12,7 +12,7 @@ import { IngredientTag } from './components/IngredientTag'
 import { QuantityInput } from '../../components/QuantityInput'
 
 export function Plate() {
-  const isAdmin = true
+  const isAdmin = false
   // const params = useParams()
   // const plateId = params.id
 
