@@ -20,7 +20,7 @@ export function Plate() {
     <PlateContainer>
       <CustomLink icon="true" text="voltar" />
       <img
-        src="https://s3-alpha-sig.figma.com/img/b0c9/ae3d/7ca1a259f937ab6aebbc5ba2ffd2d4ab?Expires=1715558400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=PMxQKeHBLy-EuxfRATQwoWnRnO-cR77CDeLZzjjXJBxS3W-nrDwNeazhr5DRe~a4r4VTxUY5o5zlwTq1w8NWEfIqsTy5z8O3tIpAcU9EYkcnEfomaZHA~7OftRJhs3FUGaOD0AUA7qIB0Hk5IpkvkCzfrlQzkeUEDNVowf3YbznSGrZTe3MCvwpQpSrHTvtJzlvomTzcrG7LLNMQkBetFJKermUhBABSDOEL~xkTfA~Rg4oHCqYJ4lJTLfXXw5DuQ-7pzlmwo-FmDEabOSNKwIfh-~kr3FLo24DRWuHIMAJdO5ajt-Pf227-I3O4PDKTcl5ecMehggLtXGTTUfcE-Q__"
+        src="https://s3-alpha-sig.figma.com/img/b0c9/ae3d/7ca1a259f937ab6aebbc5ba2ffd2d4ab?Expires=1717372800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=omeIVa-6KJHeqqDawWYkz6WNdSUBRIsCqaE0Hdbvrb6iWgvxGEAkLXAUCwDTBlR3qkgfz6cTJIkLWA3gZ4n8e4Yb1eNeXJziH5E3-oeZ83Z3QkIt-vkH-9KXXD6ldHkMvxNvlnA5jKpx5x6PvKf8ZBDpdJzx7jgMMLQ5Mtq~N4~tr-R~8uuMCo26wB4cbTtTBVc1wxtrTaPdXhZ1coUvpu50RV~467hGvBIuJ5rbhVMjX8zknr5t6jAfLq90IcMvGjAfPdUFP~-E50-03SrGXUtCfy7-lwhaAMYBahOrmgkrSf0M9hS2ML6rMqpay1IujyrSHqK~Os5Gr5G8MFU9lA__"
         alt=""
       />
 
