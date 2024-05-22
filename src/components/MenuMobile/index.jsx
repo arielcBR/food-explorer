@@ -3,14 +3,20 @@ import { CustomLink } from '../CustomLink'
 import { InputWithIcon } from '../InputWithIcon'
 import { Footer } from '../Footer'
 import { MagnifyingGlass, X } from 'phosphor-react'
+import { useMenu } from '../../context/MenuContext'
 
 export function MenuMobile() {
+  const { setMenuVisible } = useMenu()
   const isAdmin = false
+
+  function handleCloseMenu() {
+    setMenuVisible(false)
+  }
 
   return (
     <MenuMobileContainer>
       <Header>
-        <X />
+        <X onClick={handleCloseMenu} />
         <span>Menu</span>
       </Header>
       <Main>
