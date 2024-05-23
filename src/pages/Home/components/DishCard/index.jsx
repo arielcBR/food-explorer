@@ -10,8 +10,7 @@ import { Button } from '../../../../components/Button'
 import { QuantityInput } from '../../../../components/QuantityInput'
 import { formatter } from '../../../../utils/Formatter'
 
-export function DishCard({ image, name, price }) {
-  const isAdmin = false
+export function DishCard({ isAdmin, image, name, price }) {
   const priceFormatted = formatter.currency(price)
 
   return (

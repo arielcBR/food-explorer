@@ -1,20 +1,30 @@
 import { Routes, Route } from 'react-router-dom'
+import { useAuth } from '../hooks/AuthContext'
 
-import { SignUp } from '../pages/SignUp'
-import { SignIn } from '../pages/SignIn'
+import { DefaultLayout } from '../Layouts/DefaultLayout'
 import { Home } from '../pages/Home'
 import { Plate } from '../pages/Plate'
-import { DefaultLayout } from '../Layouts/DefaultLayout'
+import { NewPlate } from '../pages/NewPlate'
+import { EditPlate } from '../pages/EditPlate'
 
 export function AppRoutes() {
+  const { user } = useAuth()
+
   return (
     <Routes>
-      <Route path="/signUp" element={<SignUp />} />
-      <Route path="/signIn" element={<SignIn />} />
       <Route path="/" element={<DefaultLayout />}>
         <Route path="/" element={<Home />} />
         <Route path="/plate/:id" element={<Plate />} />
       </Route>
+
+      {user.isAdmin && (
+        <>
+          <Route path="/admin" element={<DefaultLayout />}>
+            <Route path="/admin/newPlate" element={<NewPlate />} />
+            <Route path="/admin/editPlate/:id" element={<EditPlate />} />
+          </Route>
+        </>
+      )}
     </Routes>
   )
 }

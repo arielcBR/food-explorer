@@ -17,9 +17,9 @@ export function DefaultLayout() {
           <MainContent>
             <Outlet />
           </MainContent>
+          <Footer />
         </>
       )}
-      <Footer />
     </LayoutContainer>
   )
 }

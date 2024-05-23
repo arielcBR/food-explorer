@@ -46,7 +46,7 @@ export function SignIn() {
 
         <Button type="submit" text="Entrar" size="m" />
 
-        <CustomLink to="/signUp" text="Criar uma conta" />
+        <CustomLink to="/register" text="Criar uma conta" />
       </CompleteSignIn>
     </SignInContainer>
   )
