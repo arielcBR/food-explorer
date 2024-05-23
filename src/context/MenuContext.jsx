@@ -1,6 +1,6 @@
 import { createContext, useContext, useState } from 'react'
 
-const MenuContext = createContext()
+const MenuContext = createContext({})
 
 export function MenuProvider({ children }) {
   const [menuVisible, setMenuVisible] = useState(false)
