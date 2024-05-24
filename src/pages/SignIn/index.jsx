@@ -21,6 +21,7 @@ export function SignIn() {
     <SignInContainer>
       <Logo />
       <CompleteSignIn onSubmit={handleSignIn}>
+        <h2>Faça login</h2>
         <div>
           <Label htmlFor="email" text="Email" />
           <Input

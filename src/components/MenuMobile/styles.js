@@ -10,7 +10,7 @@ export const MenuMobileContainer = styled.div`
 
   background: ${({ theme }) => theme.colors['dark-400']};
   height: 100%;
-  width: 100;
+  width: 100%;
 
   footer {
     position: absolute;

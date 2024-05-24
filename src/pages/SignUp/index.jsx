@@ -9,7 +9,9 @@ export function SignUp() {
   return (
     <SignUpContainer>
       <Logo />
+
       <CompleteSignUp>
+        <h2>Crie sua conta</h2>
         <div>
           <Label htmlFor="name" text="Seu nome" />
           <Input
