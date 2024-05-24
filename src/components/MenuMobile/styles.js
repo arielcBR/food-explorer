@@ -31,6 +31,7 @@ export const Header = styled.header`
   padding: 3.75rem 1.75rem 1.75rem;
 
   svg {
+    cursor: pointer;
     font-size: 1.375rem;
   }
 `

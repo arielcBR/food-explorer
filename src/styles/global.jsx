@@ -9,6 +9,7 @@ export const GlobalStyled = createGlobalStyle`
 
   :root {
     font-size: 16px;
+    background: ${({ theme }) => theme.colors['dark-400']};
   }
 
   :focus {
