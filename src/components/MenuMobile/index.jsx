@@ -4,13 +4,18 @@ import { InputWithIcon } from '../InputWithIcon'
 import { Footer } from '../Footer'
 import { MagnifyingGlass, X } from 'phosphor-react'
 import { useMenu } from '../../context/MenuContext'
+import { useAuth } from '../../hooks/AuthContext'
 
 export function MenuMobile() {
+  const { user, logout } = useAuth()
   const { setMenuVisible } = useMenu()
-  const isAdmin = false
 
   function handleCloseMenu() {
     setMenuVisible(false)
+  }
+
+  function handleLogout() {
+    logout()
   }
 
   return (
@@ -27,12 +32,12 @@ export function MenuMobile() {
         />
         <nav>
           <ul>
-            {isAdmin && (
+            {user.isAdmin && (
               <li>
                 <CustomLink to="#" text="Novo prato" />
               </li>
             )}
-            <li>
+            <li onClick={handleLogout}>
               <CustomLink text="Sair" />
             </li>
           </ul>

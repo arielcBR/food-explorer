@@ -1,4 +1,5 @@
 import { createContext, useContext, useState, useEffect } from 'react'
+
 import { api } from '../services/api'
 
 const AuthContext = createContext({})
@@ -23,6 +24,14 @@ function AuthProvider({ children }) {
     }
   }
 
+  async function logout() {
+    localStorage.removeItem('@foodexplorer:user')
+    localStorage.removeItem('@foodexplorer:token')
+
+    api.defaults.headers.common.Authorization = ''
+    setData({})
+  }
+
   useEffect(() => {
     const user = localStorage.getItem('@foodexplorer:user')
     const token = localStorage.getItem('@foodexplorer:token')
@@ -37,7 +46,7 @@ function AuthProvider({ children }) {
   }, [])
 
   return (
-    <AuthContext.Provider value={{ user: data.user, signIn }}>
+    <AuthContext.Provider value={{ user: data.user, signIn, logout }}>
       {children}
     </AuthContext.Provider>
   )
