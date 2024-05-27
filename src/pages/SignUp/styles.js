@@ -24,6 +24,10 @@ export const SignUpContainer = styled.div`
     }
   }
 
+  @media (min-width: ${DEVICE_BREAKPOINT.XS}) {
+    padding: 0;
+  }
+
   @media (min-width: ${DEVICE_BREAKPOINT.MD}) {
     padding: 0 6.6718rem 0 10.078rem;
   }

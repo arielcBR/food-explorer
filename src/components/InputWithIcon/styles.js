@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { DEVICE_BREAKPOINT } from '../../styles/deviceBreakpoints'
 
 export const InputWrapper = styled.div`
   display: flex;
@@ -17,6 +18,12 @@ export const InputWrapper = styled.div`
 
     > svg {
       font-size: 1.5rem;
+    }
+  }
+
+  @media (min-width: ${DEVICE_BREAKPOINT.XL}) {
+    & {
+      height: 3rem;
     }
   }
 `

@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
+import { DEVICE_BREAKPOINT } from '../../styles/deviceBreakpoints'
 
-export const LogoLink = styled(Link)`
+export const LogoContainer = styled(Link)`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -9,27 +10,59 @@ export const LogoLink = styled(Link)`
 
   cursor: pointer;
   text-decoration: none;
-`
+  white-space: nowrap;
 
-export const LogoContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-
-  img {
-    width: 22px;
-  }
-
-  span {
-    font-family: ${({ theme }) => theme.fonts.roboto};
-    font-weight: 700;
-    font-size: 1.3518rem;
-    color: ${({ theme }) => theme.colors['light-100']};
-  }
-
-  p {
+  > p {
     font-size: ${({ theme }) => theme.textSizes['text-regular-0']};
     color: ${({ theme }) => theme.colors['cake-200']};
+  }
+
+  @media (min-width: ${DEVICE_BREAKPOINT.LG}) {
+    & {
+      position: relative;
+    }
+
+    > p {
+      position: absolute;
+      bottom: -12px;
+      right: 0px;
+    }
+  }
+`
+
+export const ImageLogo = styled.img`
+  height: 24px;
+  width: 24px;
+
+  @media (mix-width: ${DEVICE_BREAKPOINT.LG}) {
+    & {
+      height: 20px;
+      width: 20px;
+    }
+  }
+
+  @media (mix-width: ${DEVICE_BREAKPOINT.XL}) {
+    & {
+      height: 30px;
+      width: 30px;
+    }
+  }
+`
+
+export const TextLogo = styled.span`
+  font-weight: 700;
+  font-size: 1.375rem;
+  color: ${({ theme }) => theme.colors['light-100']};
+
+  @media (min-width: ${DEVICE_BREAKPOINT.LG}) {
+    & {
+      font-size: ${({ theme }) => theme.textSizes['text-regular-2']};
+    }
+  }
+
+  @media (min-width: ${DEVICE_BREAKPOINT.XL}) {
+    & {
+      font-size: ${({ theme }) => theme.textSizes['text-regular-4']};
+    }
   }
 `

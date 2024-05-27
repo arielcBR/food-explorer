@@ -1,15 +1,16 @@
 import styled from 'styled-components'
+import { DEVICE_BREAKPOINT } from '../../styles/deviceBreakpoints'
 
 export const HeaderContainer = styled.header`
   background: ${({ theme }) => theme.colors['dark-700']};
 `
 
-export const HeaderContent = styled.div`
+const HeaderContent = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  padding: 3.5rem 1.75rem 1.5rem;
+  padding: 3.5rem 0 1.5rem 0;
 
   svg {
     color: ${({ theme }) => theme.colors['light-100']};
@@ -18,6 +19,38 @@ export const HeaderContent = styled.div`
 
   a {
     flex: 1;
+  }
+`
+
+export const HeaderContentMobile = styled(HeaderContent)`
+  @media (min-width: ${DEVICE_BREAKPOINT.LG}) {
+    display: none;
+  }
+`
+
+export const HeaderContentDesktop = styled(HeaderContent)`
+  @media (max-width: ${DEVICE_BREAKPOINT.LG}) {
+    display: none;
+  }
+
+  @media (min-width: ${DEVICE_BREAKPOINT.XL}) {
+    & {
+      gap: 2rem;
+
+      padding: 1.5rem 0 1.5rem 0;
+    }
+
+    div {
+      gap: 0.875rem;
+      input {
+        text-align: center;
+      }
+    }
+
+    button {
+      padding: 0.75rem 2rem;
+      width: 216px;
+    }
   }
 `
 
@@ -40,4 +73,18 @@ export const AmountOfOrders = styled.div`
   position: absolute;
   top: -5px;
   left: 20px;
+`
+export const SignOutWrapper = styled.div`
+  display: flex;
+  align-items: center;
+
+  cursor: pointer;
+
+  @media (min-width: ${DEVICE_BREAKPOINT.XL}) {
+    > svg {
+      color: ${({ theme }) => theme.colors['light-100']};
+      height: 32px;
+      width: 32px;
+    }
+  }
 `

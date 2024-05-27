@@ -7,7 +7,6 @@ export const LayoutContainer = styled.div`
   min-height: 100vh;
 
   background: ${({ theme }) => theme.colors['dark-400']};
-  max-width: 26.75rem;
   margin: 0 auto;
   width: 100%;
 `

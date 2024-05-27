@@ -5,8 +5,12 @@ const MenuContext = createContext({})
 export function MenuProvider({ children }) {
   const [menuVisible, setMenuVisible] = useState(false)
 
+  function statusMobileMenu(state) {
+    setMenuVisible(state)
+  }
+
   return (
-    <MenuContext.Provider value={{ menuVisible, setMenuVisible }}>
+    <MenuContext.Provider value={{ menuVisible, statusMobileMenu }}>
       {children}
     </MenuContext.Provider>
   )

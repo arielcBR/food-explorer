@@ -10,9 +10,11 @@ import { Receipt } from 'phosphor-react'
 import { CustomLink } from '../../components/CustomLink'
 import { IngredientTag } from './components/IngredientTag'
 import { QuantityInput } from '../../components/QuantityInput'
+import { useAuth } from '../../hooks/AuthContext'
 
 export function Plate() {
-  const isAdmin = false
+  const { user } = useAuth()
+  const isAdmin = user ? user.isAdmin : false
   // const params = useParams()
   // const plateId = params.id
 

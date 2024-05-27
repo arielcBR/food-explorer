@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 
 export const ButtonContainer = styled.button`
   display: flex;
@@ -26,18 +26,4 @@ export const ButtonContainer = styled.button`
     cursor: not-allowed;
     opacity: 0.6;
   }
-
-  ${({ size }) =>
-    size === 'sm' &&
-    css`
-      padding: 0.75rem 1.5rem;
-      height: 2rem;
-    `}
-
-  ${({ size }) =>
-    size === 'm' &&
-    css`
-      padding: 0.75rem 1.5rem;
-      height: 3rem;
-    `}
 `

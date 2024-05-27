@@ -8,10 +8,10 @@ import { useAuth } from '../../hooks/AuthContext'
 
 export function MenuMobile() {
   const { user, logout } = useAuth()
-  const { setMenuVisible } = useMenu()
+  const { statusMobileMenu } = useMenu()
 
   function handleCloseMenu() {
-    setMenuVisible(false)
+    statusMobileMenu(false)
   }
 
   function handleLogout() {

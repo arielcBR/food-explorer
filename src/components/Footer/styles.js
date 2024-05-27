@@ -1,10 +1,12 @@
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
+import { DEVICE_BREAKPOINT } from '../../styles/deviceBreakpoints'
 
 export const FooterContainer = styled.footer`
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  gap: 0.5rem;
 
   background: ${({ theme }) => theme.colors['dark-600']};
   padding-bottom: 1.5rem;
@@ -24,6 +26,14 @@ export const FooterContainer = styled.footer`
     font-family: ${({ theme }) => theme.fonts.dmSans};
     font-weight: 400;
     font-size: ${({ theme }) => theme.textSizes['text-regular-0']};
+  }
+
+  @media (min-width: ${DEVICE_BREAKPOINT.SM}) {
+    & {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
   }
 `
 export const LogoFooter = styled(Link)`

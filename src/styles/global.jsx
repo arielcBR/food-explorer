@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components'
+import { DEVICE_BREAKPOINT } from '../styles/deviceBreakpoints'
 
 export const GlobalStyled = createGlobalStyle`
   * {
@@ -36,4 +37,24 @@ export const GlobalStyled = createGlobalStyle`
     padding-right: 1.5rem;
   }
 
+  @media (min-width: ${DEVICE_BREAKPOINT.MD}) {
+    .container {
+      padding-left: 5rem;
+      padding-right: 5rem;
+    }
+  }
+
+  @media (min-width: ${DEVICE_BREAKPOINT.LG}) {
+    .container {
+      padding-left: 6rem;
+      padding-right: 6rem;
+    }
+  }
+
+  @media (min-width: ${DEVICE_BREAKPOINT.XL}) {
+    .container {
+      padding-left: 7.6875rem;
+      padding-right: 7.6875rem;
+    }
+  }
 `

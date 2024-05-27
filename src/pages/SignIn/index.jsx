@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { SignInContainer, CompleteSignIn } from './styles'
 import { Label } from '../../components/Label'
 import { Input } from '../../components/Input'
@@ -6,8 +6,10 @@ import { Logo } from '../../components/Logo'
 import { Button } from '../../components/Button'
 import { CustomLink } from '../../components/CustomLink'
 import { useAuth } from '../../hooks/AuthContext'
+import { useMenu } from '../../context/MenuContext'
 
 export function SignIn() {
+  const { statusMobileMenu } = useMenu()
   const { signIn } = useAuth()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -16,6 +18,10 @@ export function SignIn() {
     event.preventDefault()
     signIn(email, password)
   }
+
+  useEffect(() => {
+    statusMobileMenu(false)
+  })
 
   return (
     <SignInContainer>

@@ -14,7 +14,7 @@ export function DefaultLayout() {
       {!menuVisible && (
         <>
           <Header />
-          <MainContent>
+          <MainContent className="container">
             <Outlet />
           </MainContent>
           <Footer />

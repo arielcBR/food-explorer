@@ -1,16 +1,16 @@
-import { LogoLink, LogoContainer } from './styles'
+import { LogoContainer, ImageLogo, TextLogo } from './styles'
 import logoHeader from '../../assets/logo.svg'
+import { useAuth } from '../../hooks/AuthContext'
 
 export function Logo() {
-  const isAdmin = false
+  const { user } = useAuth()
+  const isAdmin = user ? user.isAdmin : false
 
   return (
-    <LogoLink to="/">
-      <LogoContainer>
-        <img src={logoHeader} alt="Logo poligono" />
-        <span>food explorer</span>
-        {isAdmin && <p>admin</p>}
-      </LogoContainer>
-    </LogoLink>
+    <LogoContainer to="/">
+      <ImageLogo src={logoHeader} alt="Logo poligono" />
+      <TextLogo>food explorer</TextLogo>
+      {isAdmin ? <p>admin</p> : <p></p>}
+    </LogoContainer>
   )
 }
