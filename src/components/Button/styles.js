@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { DEVICE_BREAKPOINT } from '../../styles/deviceBreakpoints'
 
 export const ButtonContainer = styled.button`
   display: flex;
@@ -25,5 +26,17 @@ export const ButtonContainer = styled.button`
     background: ${({ theme }) => theme.colors['tomato-400']};
     cursor: not-allowed;
     opacity: 0.6;
+  }
+
+  @media (min-width: ${DEVICE_BREAKPOINT.LG}) {
+    & {
+      height: 2.5rem;
+    }
+  }
+
+  @media (min-width: ${DEVICE_BREAKPOINT.XL}) {
+    & {
+      height: 3rem;
+    }
   }
 `

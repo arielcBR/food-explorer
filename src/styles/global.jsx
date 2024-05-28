@@ -24,7 +24,7 @@ export const GlobalStyled = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
   }
 
-  body, input-security, textarea, button {
+  body, input, textarea, button {
     font: 400 1rem ${({ theme }) => theme.fonts.roboto}, sans-serif;
   }
 

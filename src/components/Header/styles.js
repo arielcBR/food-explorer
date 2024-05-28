@@ -17,8 +17,10 @@ const HeaderContent = styled.div`
     cursor: pointer;
   }
 
-  a {
-    flex: 1;
+  @media (max-width: ${DEVICE_BREAKPOINT.LG}) {
+    a {
+      flex: 1;
+    }
   }
 `
 
@@ -29,8 +31,44 @@ export const HeaderContentMobile = styled(HeaderContent)`
 `
 
 export const HeaderContentDesktop = styled(HeaderContent)`
+  > svg {
+    display: flex;
+    align-items: center;
+
+    cursor: pointer;
+    height: 2rem;
+    width: 2rem;
+  }
+
   @media (max-width: ${DEVICE_BREAKPOINT.LG}) {
     display: none;
+  }
+
+  @media (min-width: ${DEVICE_BREAKPOINT.LG}) {
+    & {
+      gap: 2rem;
+
+      padding: 1.5rem 0 1.5rem 0;
+      margin: 0 auto;
+    }
+
+    > div {
+      width: 36.3125rem;
+
+      div {
+        justify-content: flex-end;
+        width: 5rem;
+      }
+
+      input {
+        flex: 1;
+      }
+    }
+
+    button {
+      padding: 0.75rem 2rem;
+      width: 13.5rem;
+    }
   }
 
   @media (min-width: ${DEVICE_BREAKPOINT.XL}) {
@@ -38,18 +76,25 @@ export const HeaderContentDesktop = styled(HeaderContent)`
       gap: 2rem;
 
       padding: 1.5rem 0 1.5rem 0;
+      margin: 0 auto;
     }
 
-    div {
-      gap: 0.875rem;
+    > div {
+      width: 36.3125rem;
+
+      div {
+        justify-content: flex-end;
+        width: 10.5rem;
+      }
+
       input {
-        text-align: center;
+        flex: 1;
       }
     }
 
     button {
       padding: 0.75rem 2rem;
-      width: 216px;
+      width: 13.5rem;
     }
   }
 `

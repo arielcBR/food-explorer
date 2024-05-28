@@ -2,7 +2,6 @@ import {
   HeaderContainer,
   HeaderContentMobile,
   HeaderContentDesktop,
-  SignOutWrapper,
   OrderWrapper,
   AmountOfOrders,
 } from './styles'
@@ -48,9 +47,7 @@ export function Header() {
         {isAdmin && <Button text="Novo prato" />}
         {!isAdmin && <Button icon={<Receipt size={32} />} text="Pedidos (0)" />}
 
-        <SignOutWrapper onClick={handleLogout}>
-          <SignOut />
-        </SignOutWrapper>
+        <SignOut onClick={handleLogout} />
       </HeaderContentDesktop>
     </HeaderContainer>
   )

@@ -21,6 +21,12 @@ export const InputWrapper = styled.div`
     }
   }
 
+  @media (min-width: ${DEVICE_BREAKPOINT.LG}) {
+    & {
+      height: 2.5rem;
+    }
+  }
+
   @media (min-width: ${DEVICE_BREAKPOINT.XL}) {
     & {
       height: 3rem;

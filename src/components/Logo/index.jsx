@@ -8,8 +8,10 @@ export function Logo() {
 
   return (
     <LogoContainer to="/">
-      <ImageLogo src={logoHeader} alt="Logo poligono" />
-      <TextLogo>food explorer</TextLogo>
+      <div>
+        <ImageLogo src={logoHeader} alt="Logo poligono" />
+        <TextLogo>food explorer</TextLogo>
+      </div>
       {isAdmin ? <p>admin</p> : <p></p>}
     </LogoContainer>
   )
