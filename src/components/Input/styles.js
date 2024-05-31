@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import { DEVICE_BREAKPOINT } from '../../styles/deviceBreakpoints'
 
 export const InputWrapper = styled.div`
   display: flex;
@@ -18,13 +17,11 @@ export const InputStyled = styled.input`
   padding: 0.75rem 0.875rem;
   width: 100%;
 
-  :focus {
-    border: 1px solid ${({ theme }) => theme.colors['light-100']};
+  &::placeholder {
+    font-size: ${({ theme }) => theme.textSizes['text-regular-1']};
   }
 
-  @media (min-width: ${DEVICE_BREAKPOINT.LG}) {
-    & {
-      border-radius: 5px;
-    }
+  :focus {
+    border: 1px solid ${({ theme }) => theme.colors['light-100']};
   }
 `

@@ -25,6 +25,13 @@ export const InputWrapper = styled.div`
     & {
       height: 2.5rem;
     }
+
+    > div {
+      svg {
+        height: 20px;
+        width: 20px;
+      }
+    }
   }
 
   @media (min-width: ${DEVICE_BREAKPOINT.XL}) {
@@ -38,4 +45,8 @@ export const InputStyled = styled.input`
   border: none;
   color: ${({ theme }) => theme.colors['light-500']};
   width: 100%;
+
+  &:focus {
+    outline: none;
+  }
 `

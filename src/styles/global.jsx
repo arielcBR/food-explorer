@@ -32,6 +32,10 @@ export const GlobalStyled = createGlobalStyle`
     border: none;
   }
 
+  input:focus { 
+    outline: none;
+  }
+
   .container {
     padding-left: 1.5rem;
     padding-right: 1.5rem;

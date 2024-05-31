@@ -31,12 +31,22 @@ export const ButtonContainer = styled.button`
   @media (min-width: ${DEVICE_BREAKPOINT.LG}) {
     & {
       height: 2.5rem;
+
+      > svg {
+        height: 20px;
+        width: 20px;
+      }
     }
   }
 
   @media (min-width: ${DEVICE_BREAKPOINT.XL}) {
     & {
       height: 3rem;
+    }
+
+    > svg {
+      height: 24px;
+      width: 24px;
     }
   }
 `
