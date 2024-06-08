@@ -1,46 +1,61 @@
 import styled from 'styled-components'
-import imgHero from '../../assets/hero.png'
+import { DEVICE_BREAKPOINT } from '../../styles/deviceBreakpoints'
 
-export const BannerContainer = styled.div`
-  display: flex;
-  align-items: end;
-  justify-content: flex-end;
-
-  border-radius: 3px;
-  background: ${({ theme }) => theme.colors['gradient-200']};
-  margin: 2.75rem 1rem 0 2.25rem;
+export const BannerContainer = styled.figure`
   position: relative;
-  height: 7.5rem;
-`
+  width: 100%;
+  height: clamp(7.5rem, 23vw, 25rem);
+  margin-top: clamp(4.4rem, 12vw, 16rem);
+  padding-right: clamp(0.5rem, 6vw, 7rem);
+  border-radius: 0.8rem;
+  background: ${({ theme }) => theme.colors['gradient-200']};
 
-export const BannerImage = styled.div`
-  background-image: url(${imgHero});
-  background-size: cover;
-  transform: rotateY(180deg);
-  position: absolute;
-  top: -30px;
-  left: -25px;
-  height: 149px;
-  width: 191px;
-`
-
-export const BannerText = styled.div`
   display: flex;
-  flex-direction: column;
-  gap: 0.1875rem;
+  justify-content: flex-end;
+  align-items: center;
 
-  color: ${({ theme }) => theme.colors['light-300']};
-  font-family: ${({ theme }) => theme.fonts.poppins};
-  padding-bottom: 1.25rem;
-  width: 13.5rem;
+  > div {
+    width: fit-content;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    justify-content: center;
 
-  > h2 {
-    font-size: 1.125rem;
-    font-weight: 600;
-  }
+    > img {
+      position: absolute;
+      bottom: 0;
+      left: -1rem;
+      z-index: 1;
+      width: clamp(11.7rem, 45vw, 50rem);
+    }
 
-  > p {
-    font-size: ${({ theme }) => theme.textSizes['text-regular-0']};
-    font-weight: 400;
+    h2 {
+      z-index: 1;
+      white-space: nowrap;
+      color: ${({ theme }) => theme.colors['light-300']};
+      font-family: ${({ theme }) => theme.fonts.poppins};
+      font-size: clamp(0.86rem, 3.5vw, 3rem);
+      font-weight: 500;
+      line-height: 140%;
+    }
+
+    p {
+      z-index: 1;
+      width: clamp(55%, 37vw, 100%);
+      color: ${({ theme }) => theme.colors['light-300']};
+      font-family: ${({ theme }) => theme.fonts.roboto};
+      font-size: clamp(0.63rem, 1.8vw, 1.2rem);
+      font-weight: 400;
+      line-height: 100%;
+    }
+
+    @media (min-width: ${DEVICE_BREAKPOINT.MD}) {
+      > div {
+        > img {
+          left: -3rem;
+        }
+      }
+    }
   }
 `

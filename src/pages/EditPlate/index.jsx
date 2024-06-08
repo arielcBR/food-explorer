@@ -10,8 +10,13 @@ export function EditPlate() {
       <h2>Editar prato</h2>
       <Form id="plateForm" />
       <ButtonsWrapper>
-        <Button text="Excluir prato" />
-        <Button form="plateForm" type="submit" text="Salvar alterações" />
+        <Button variant="normal" text="Excluir prato" />
+        <Button
+          variant="normal"
+          form="plateForm"
+          type="submit"
+          text="Salvar alterações"
+        />
       </ButtonsWrapper>
     </NewPlateContainer>
   )

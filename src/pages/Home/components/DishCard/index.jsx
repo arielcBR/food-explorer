@@ -35,7 +35,7 @@ export function DishCard({ isAdmin, image, name, price }) {
           <DishName>{name}</DishName>
           <DishPrice>{priceFormatted}</DishPrice>
           <QuantityInput />
-          <Button size="sm" text="Incluir" />
+          <Button text="Incluir" />
         </DishCardContainer>
       )}
     </>

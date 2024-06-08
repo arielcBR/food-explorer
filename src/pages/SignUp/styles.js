@@ -68,6 +68,10 @@ export const CompleteSignUp = styled.form`
     gap: 0.5rem;
   }
 
+  > button {
+    max-width: none;
+  }
+
   @media (min-width: ${DEVICE_BREAKPOINT.MD}) {
     & {
       width: 24.6875rem;

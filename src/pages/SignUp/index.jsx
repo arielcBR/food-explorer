@@ -43,7 +43,7 @@ export function SignUp() {
           />
         </div>
 
-        <Button type="submit" text="Criar Conta" size="m" />
+        <Button type="submit" text="Criar Conta" variant="normal" />
 
         <CustomLink to="/" text="Já tenho uma conta" />
       </CompleteSignUp>

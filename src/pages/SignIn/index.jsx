@@ -51,7 +51,7 @@ export function SignIn() {
           />
         </div>
 
-        <Button type="submit" text="Entrar" size="m" />
+        <Button variant="normal" type="submit" text="Entrar" />
 
         <CustomLink to="/register" text="Criar uma conta" />
       </CompleteSignIn>

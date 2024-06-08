@@ -10,7 +10,7 @@ export function Slider({ slides }) {
     <Swiper
       modules={[Pagination]}
       spaceBetween={100}
-      slidesPerView={2}
+      slidesPerView={3}
       pagination={{ clickable: true }}
     >
       {slides.map((slide) => (

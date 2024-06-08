@@ -44,6 +44,7 @@ export const Main = styled.main`
 
   > div {
     margin-bottom: 2rem;
+    width: 100%;
   }
 
   > nav {

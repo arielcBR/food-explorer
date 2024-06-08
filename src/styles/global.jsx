@@ -61,4 +61,5 @@ export const GlobalStyled = createGlobalStyle`
       padding-right: 7.6875rem;
     }
   }
+
 `

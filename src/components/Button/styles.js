@@ -12,10 +12,10 @@ export const ButtonContainer = styled.button`
   color: ${({ theme }) => theme.colors['light-100']};
   cursor: pointer;
   font-family: ${({ theme }) => theme.fonts.poppins};
-  font-size: ${({ theme }) => theme.textSizes['text-regular-1']};
   font-weight: 500;
-  padding: 0.75rem;
+
   white-space: nowrap;
+  max-width: 11.5rem;
   width: 100%;
 
   &:not(:disabled):hover {
@@ -28,25 +28,17 @@ export const ButtonContainer = styled.button`
     opacity: 0.6;
   }
 
-  @media (min-width: ${DEVICE_BREAKPOINT.LG}) {
-    & {
-      height: 2.5rem;
-
-      > svg {
-        height: 20px;
-        width: 20px;
-      }
-    }
+  @media (max-width: ${DEVICE_BREAKPOINT.XL}) {
+    font-size: ${({ theme }) => theme.textSizes['text-regular-0']};
+    max-width: 11rem;
+    padding: ${({ size }) =>
+      size === 'large' ? '0.75rem 1.25rem' : '0.75rem 1rem'};
   }
 
   @media (min-width: ${DEVICE_BREAKPOINT.XL}) {
-    & {
-      height: 3rem;
-    }
-
-    > svg {
-      height: 24px;
-      width: 24px;
-    }
+    font-size: ${({ theme }) => theme.textSizes['text-regular-1']};
+    max-width: 13.5rem;
+    padding: ${({ size }) =>
+      size === 'large' ? '0.75rem 2rem' : '0.75rem 1.5rem'};
   }
 `

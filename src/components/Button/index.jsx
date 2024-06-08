@@ -1,8 +1,8 @@
 import { ButtonContainer } from './styles'
 
-export function Button({ text, icon, size = 'sm', ...rest }) {
+export function Button({ text, icon, variant = 'large', ...rest }) {
   return (
-    <ButtonContainer size={size} {...rest}>
+    <ButtonContainer size={variant} {...rest}>
       {icon && icon}
       {text}
     </ButtonContainer>

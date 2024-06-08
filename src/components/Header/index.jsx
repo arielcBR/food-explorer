@@ -44,8 +44,10 @@ export function Header() {
           placeholder="Busque por pratos ou ingredientes"
           icon={<MagnifyingGlass size={32} />}
         />
-        {isAdmin && <Button text="Novo prato" />}
-        {!isAdmin && <Button icon={<Receipt size={32} />} text="Pedidos (0)" />}
+        <Button
+          text={isAdmin ? 'Novo prato' : 'Pedidos (0)'}
+          icon={!isAdmin ? <Receipt /> : null}
+        />
 
         <SignOut onClick={handleLogout} />
       </HeaderContentDesktop>

@@ -9,7 +9,12 @@ export function NewPlate() {
       <CustomLink to="#" text="voltar" icon="true" />
       <h2>Novo prato</h2>
       <Form id="plateForm" />
-      <Button form="plateForm" type="submit" text="Salvar alterações" />
+      <Button
+        variant="normal"
+        form="plateForm"
+        type="submit"
+        text="Salvar alterações"
+      />
     </NewPlateContainer>
   )
 }

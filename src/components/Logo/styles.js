@@ -11,6 +11,13 @@ export const LogoContainer = styled(Link)`
   cursor: pointer;
   text-decoration: none;
   white-space: nowrap;
+  width: 100%;
+
+  > div {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
 
   > p {
     font-size: ${({ theme }) => theme.textSizes['text-regular-0']};
@@ -18,16 +25,8 @@ export const LogoContainer = styled(Link)`
   }
 
   @media (min-width: ${DEVICE_BREAKPOINT.LG}) {
-    & {
-      position: relative;
-      width: 10rem;
-    }
-
-    > div {
-      display: flex;
-      align-items: center;
-      gap: 0.25rem;
-    }
+    position: relative;
+    max-width: 10rem;
 
     > p {
       position: absolute;
@@ -37,15 +36,11 @@ export const LogoContainer = styled(Link)`
   }
 
   @media (min-width: ${DEVICE_BREAKPOINT.XL}) {
-    & {
-      position: relative;
-      width: 11.625rem;
+    position: relative;
+    max-width: 11.5rem;
 
-      > div {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-      }
+    > div {
+      gap: 0.5rem;
     }
 
     > p {
@@ -57,38 +52,26 @@ export const LogoContainer = styled(Link)`
 `
 
 export const ImageLogo = styled.img`
-  height: 24px;
-  width: 24px;
+  height: 1.5rem;
+  width: 1.5rem;
 
   @media (min-width: ${DEVICE_BREAKPOINT.LG}) {
     & {
-      height: 20px;
-      width: 20px;
+      height: 1.75rem;
+      width: 1.75rem;
     }
   }
 
   @media (min-width: ${DEVICE_BREAKPOINT.XL}) {
     & {
-      height: 30px;
-      width: 30px;
+      height: 2rem;
+      width: 2rem;
     }
   }
 `
 
 export const TextLogo = styled.span`
   font-weight: 700;
-  font-size: 1.375rem;
+  font-size: clamp(1rem, 50vw, 1.5rem);
   color: ${({ theme }) => theme.colors['light-100']};
-
-  @media (min-width: ${DEVICE_BREAKPOINT.LG}) {
-    & {
-      font-size: ${({ theme }) => theme.textSizes['text-regular-2']};
-    }
-  }
-
-  @media (min-width: ${DEVICE_BREAKPOINT.XL}) {
-    & {
-      font-size: ${({ theme }) => theme.textSizes['text-regular-4']};
-    }
-  }
 `

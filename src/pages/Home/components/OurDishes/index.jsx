@@ -6,7 +6,7 @@ import slides from '../../../../../mock.json'
 
 export function OurDishes({ title }) {
   return (
-    <OurDishesContainer className="container">
+    <OurDishesContainer>
       <TitleText>{title}</TitleText>
 
       <SliderContainer>

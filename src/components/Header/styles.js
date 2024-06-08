@@ -36,65 +36,30 @@ export const HeaderContentDesktop = styled(HeaderContent)`
     align-items: center;
 
     cursor: pointer;
-    height: 2rem;
-    width: 2rem;
+    height: 1.5rem;
+    width: 1.5rem;
   }
 
-  @media (max-width: ${DEVICE_BREAKPOINT.LG}) {
+  @media (max-width: 1023px) {
     display: none;
   }
 
   @media (min-width: ${DEVICE_BREAKPOINT.LG}) {
-    & {
-      gap: 2rem;
+    gap: 1rem;
 
-      padding: 1.5rem 0 1.5rem 0;
-      margin: 0 auto;
-    }
-
-    > div {
-      width: 36.3125rem;
-
-      div {
-        justify-content: flex-end;
-        width: 5rem;
-      }
-
-      input {
-        flex: 1;
-      }
-    }
-
-    button {
-      padding: 0.75rem 2rem;
-      width: 13.5rem;
-    }
+    padding: 1.5rem 0 1.5rem 0;
+    margin: 0 auto;
   }
 
   @media (min-width: ${DEVICE_BREAKPOINT.XL}) {
-    & {
-      gap: 2rem;
+    gap: 2rem;
 
-      padding: 1.5rem 0 1.5rem 0;
-      margin: 0 auto;
-    }
+    padding: 1.5rem 0 1.5rem 0;
+    margin: 0 auto;
 
-    > div {
-      width: 36.3125rem;
-
-      div {
-        justify-content: flex-end;
-        width: 10.5rem;
-      }
-
-      input {
-        flex: 1;
-      }
-    }
-
-    button {
-      padding: 0.75rem 2rem;
-      width: 13.5rem;
+    > svg {
+      height: 2rem;
+      width: 2rem;
     }
   }
 `

@@ -1,13 +1,14 @@
-import { BannerContainer, BannerImage, BannerText } from './styles'
+import { BannerContainer } from './styles'
+import imgHero from '../../assets/hero.png'
 
 export function Banner() {
   return (
     <BannerContainer>
-      <BannerImage />
-      <BannerText>
+      <div>
+        <img src={imgHero} alt="" />
         <h2>Sabores Inigualáveis</h2>
         <p>Sinto o cuidado do preparo com ingredientes selecionados.</p>
-      </BannerText>
+      </div>
     </BannerContainer>
   )
 }
