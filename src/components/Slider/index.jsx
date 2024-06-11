@@ -9,9 +9,29 @@ export function Slider({ slides }) {
   return (
     <Swiper
       modules={[Pagination]}
-      spaceBetween={100}
-      slidesPerView={3}
       pagination={{ clickable: true }}
+      breakpoints={{
+        375: {
+          slidesPerView: 2,
+          spaceBetween: 110,
+        },
+        425: {
+          slidesPerView: 2,
+          spaceBetween: 60,
+        },
+        768: {
+          slidesPerView: 3,
+          spaceBetween: 60,
+        },
+        1024: {
+          slidesPerView: 4,
+          spaceBetween: 60,
+        },
+        1366: {
+          slidesPerView: 5,
+          spaceBetween: 60,
+        },
+      }}
     >
       {slides.map((slide) => (
         <SwiperSlide key={slide.image}>
