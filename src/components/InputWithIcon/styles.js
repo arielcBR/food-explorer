@@ -8,6 +8,8 @@ export const InputWrapper = styled.div`
 
   background: ${({ theme }) => theme.colors['dark-900']};
   border-radius: 5px;
+  padding: 0.875rem 0.75rem;
+  outline: none;
   width: 100%;
 
   > div {
