@@ -1,35 +1,57 @@
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { Pagination } from 'swiper/modules'
+import { Pagination, Navigation, A11y } from 'swiper/modules'
 import { DishCard } from '../../pages/Home/components/DishCard'
 import 'swiper/swiper-bundle.css'
+import { DEVICE_BREAKPOINT } from '../../styles/deviceBreakpoints'
 
 import imageDish from '../../assets/image 2.png'
+import { useEffect, useState } from 'react'
 
 export function Slider({ slides }) {
+  const [isNavigationSwiperEnable, setIsNavigationSwiperEnable] =
+    useState(false)
+
+  const updateNavigationSwiper = () => {
+    const viewportWidth = parseInt(window.innerWidth)
+
+    setIsNavigationSwiperEnable(viewportWidth >= 1024)
+  }
+
+  useEffect(() => {
+    updateNavigationSwiper()
+    window.addEventListener('resize', updateNavigationSwiper)
+    return () => window.removeEventListener('resize', updateNavigationSwiper)
+  }, [])
+
   return (
     <Swiper
-      modules={[Pagination]}
+      modules={[Navigation, Pagination, A11y]}
       pagination={{ clickable: true }}
+      navigation={isNavigationSwiperEnable}
       breakpoints={{
-        375: {
+        [parseInt(DEVICE_BREAKPOINT.XS)]: {
           slidesPerView: 2,
           spaceBetween: 110,
         },
-        425: {
+        [parseInt(DEVICE_BREAKPOINT.SM)]: {
           slidesPerView: 2,
           spaceBetween: 60,
         },
-        768: {
+        [parseInt(DEVICE_BREAKPOINT.MD)]: {
           slidesPerView: 3,
           spaceBetween: 60,
         },
-        1024: {
-          slidesPerView: 4,
-          spaceBetween: 60,
+        [parseInt(DEVICE_BREAKPOINT.LG)]: {
+          slidesPerView: 3,
+          spaceBetween: 100,
         },
-        1366: {
+        1270: {
+          slidesPerView: 4,
+          spaceBetween: 80,
+        },
+        1440: {
           slidesPerView: 5,
-          spaceBetween: 60,
+          spaceBetween: 20,
         },
       }}
     >

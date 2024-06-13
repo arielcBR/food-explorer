@@ -8,6 +8,7 @@ export const DishCardContainer = styled.div`
   flex-direction: column;
   gap: 12px;
 
+  background: ${({ theme }) => theme.colors['dark-200']};
   border-radius: 8px;
   border: 1px solid ${({ theme }) => theme.colors['dark-300']};
   margin-bottom: 1.5rem;
