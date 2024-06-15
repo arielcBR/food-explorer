@@ -14,8 +14,7 @@ export const DishCardContainer = styled.div`
   margin-bottom: 1.5rem;
   padding: 1.5rem;
   position: relative;
-  height: 292px;
-  width: 210px;
+  width: clamp(12rem, 25vw, 13.5rem);
 
   .hidden {
     display: none;
