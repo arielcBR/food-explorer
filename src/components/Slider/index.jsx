@@ -2,9 +2,12 @@ import {
   CarouselContainer,
   GradientOverlayLeft,
   GradientOverlayRight,
+  NavigationButtonWrapper,
+  NavigationButton,
 } from './styles'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Pagination, Navigation, A11y } from 'swiper/modules'
+import { CaretLeft, CaretRight } from 'phosphor-react'
 import { DishCard } from '../../pages/Home/components/DishCard'
 import 'swiper/swiper-bundle.css'
 import { DEVICE_BREAKPOINT } from '../../styles/deviceBreakpoints'
@@ -13,12 +16,12 @@ import imageDish from '../../assets/image 2.png'
 import { useEffect, useState } from 'react'
 
 export function Slider({ slides }) {
-  const [isDesktopViewportWidth, setIsDesktopViewportWidth] = useState(false)
+  const [desktopViewportWidth, setDesktopViewportWidth] = useState(false)
 
   const updateNavigationSwiper = () => {
     const viewportWidth = parseInt(window.innerWidth)
 
-    setIsDesktopViewportWidth(viewportWidth >= 1024)
+    setDesktopViewportWidth(viewportWidth >= 1024)
   }
 
   useEffect(() => {
@@ -32,7 +35,10 @@ export function Slider({ slides }) {
       <Swiper
         modules={[Navigation, Pagination, A11y]}
         pagination={{ clickable: true }}
-        navigation={isDesktopViewportWidth}
+        navigation={{
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        }}
         breakpoints={{
           [parseInt(DEVICE_BREAKPOINT.XS)]: {
             slidesPerView: 2,
@@ -67,8 +73,18 @@ export function Slider({ slides }) {
         ))}
       </Swiper>
 
-      {isDesktopViewportWidth && (
+      {desktopViewportWidth && (
         <>
+          <NavigationButtonWrapper>
+            <NavigationButton className="swiper-button-prev">
+              <CaretLeft />
+            </NavigationButton>
+
+            <NavigationButton className="swiper-button-next">
+              <CaretRight />
+            </NavigationButton>
+          </NavigationButtonWrapper>
+
           <GradientOverlayLeft />
           <GradientOverlayRight />
         </>

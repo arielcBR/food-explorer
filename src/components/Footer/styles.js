@@ -15,7 +15,7 @@ export const FooterContainer = styled.footer`
   position: sticky;
   bottom: 0;
   width: 100%;
-  z-index: 10;
+  z-index: 1000;
 
   > a {
     width: 142px;
