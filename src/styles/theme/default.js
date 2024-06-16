@@ -28,8 +28,10 @@ export const defaultTheme = {
     'cake-100': '#065E7C',
     'cake-200': '#82F3FF',
 
-    'gradient-100':
+    'gradient-100-90':
       'linear-gradient(90deg, rgba(0, 10, 15, 0.27) 0%, #000A0F 100%)',
+    'gradient-100-180':
+      'linear-gradient(180deg, rgba(0, 10, 15, 0.27) 0%, #000A0F 100%)',
     'gradient-200': 'linear-gradient(180deg, #091E26 0%, #00131C 100%)',
   },
   fonts: {
