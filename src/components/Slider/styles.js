@@ -6,16 +6,14 @@ export const CarouselContainer = styled.div`
   .swiper-button-prev,
   .swiper-button-next {
     > svg {
-      display: none;
+      /* display: none; */
+      width: 1px;
+      height: 1px;
     }
 
     transition: 0.3s ease-in-out;
   }
 
-  .swiper-button-prev:hover,
-  .swiper-button-next:hover {
-    color: ${({ theme }) => theme.colors['light-500']};
-  }
 `
 
 const GradientOverlay = styled.div`
@@ -38,32 +36,4 @@ export const GradientOverlayRight = styled(GradientOverlay)`
   background: ${({ theme }) => theme.colors['gradient-100-90']};
 `
 
-export const NavigationButtonWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
 
-  position: absolute;
-  top: 35%;
-  left: 0;
-
-  padding: 0.5rem;
-  width: 100%;
-  z-index: 100;
-`
-
-export const NavigationButton = styled.button`
-  background-color: transparent;
-
-  > svg {
-    color: ${({ theme }) => theme.colors['light-100']};
-    height: 30px;
-    width: 30px;
-
-    transition: 0.3s ease-in-out;
-  }
-
-  &:hover {
-    /* color: ${({ theme }) => theme.colors['light-200']}; */
-  }
-`

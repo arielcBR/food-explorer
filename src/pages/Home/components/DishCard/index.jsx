@@ -4,13 +4,23 @@ import {
   DishName,
   DishImage,
   DishPrice,
+  DishDescription,
   FavoriteIconWrapper,
 } from './styles'
 import { Button } from '../../../../components/Button'
 import { QuantityInput } from '../../../../components/QuantityInput'
 import { formatter } from '../../../../utils/Formatter'
+import { useAuth } from '../../../../hooks/AuthContext'
+import { useMenu } from '../../../../context/MenuContext'
 
-export function DishCard({ isAdmin, image, name, price }) {
+export function DishCard({dish}) {
+  const { user } = useAuth()
+  const isAdmin = user ? user.isAdmin : false
+  const { menuVisible } = useMenu()
+  const mobileViewPort = menuVisible
+
+  const {name, description, price, image} = dish;
+
   const priceFormatted = formatter.currency(price)
 
   return (
@@ -23,6 +33,7 @@ export function DishCard({ isAdmin, image, name, price }) {
 
           <DishImage src={image} />
           <DishName>{name}</DishName>
+          {!mobileViewPort && <DishDescription>{description}</DishDescription>}
           <DishPrice>{priceFormatted}</DishPrice>
         </DishCardContainer>
       ) : (
@@ -33,6 +44,7 @@ export function DishCard({ isAdmin, image, name, price }) {
 
           <DishImage src={image} />
           <DishName>{name}</DishName>
+          {!mobileViewPort && <DishDescription>{description}</DishDescription>}
           <DishPrice>{priceFormatted}</DishPrice>
           <QuantityInput />
           <Button text="Incluir" />

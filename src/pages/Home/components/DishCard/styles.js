@@ -54,3 +54,11 @@ export const DishImage = styled.img`
 export const DishPrice = styled.p`
   color: ${({ theme }) => theme.colors['cake-200']};
 `
+
+export const DishDescription = styled.p`
+  color: ${({ theme }) => theme.colors['light-400']};
+  text-align: center;
+  font-family: ${({ theme }) => theme.fonts.roboto};
+  font-size: 14px;
+  line-height: 160%;
+`
