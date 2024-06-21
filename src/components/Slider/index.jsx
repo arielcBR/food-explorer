@@ -72,13 +72,8 @@ export function Slider({ slides }) {
         ))}    
       </Swiper>
 
-      {desktopViewportWidth && (
-        <>
-          
-          {/* <GradientOverlayLeft /> */}
-          {/* <GradientOverlayRight /> */}
-        </>
-      )}    
+      <GradientOverlayLeft />
+      <GradientOverlayRight />
 
       
     </CarouselContainer>

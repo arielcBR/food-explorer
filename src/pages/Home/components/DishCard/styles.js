@@ -16,7 +16,11 @@ export const DishCardContainer = styled.div`
   padding: 1.5rem;
   position: relative;
   min-height: 20rem;
-  width: clamp(12rem, 25vw, 15.5rem);
+  width: clamp(12.5rem, 25vw, 15.5rem);
+
+  @media (max-width: ${DEVICE_BREAKPOINT.LG}){
+    min-height: 16rem;
+  }
 `
 
 export const IconWrapper = styled(Link)`
@@ -42,10 +46,6 @@ export const DishName = styled.p`
   font-weight: 400;
   color: ${({ theme }) => theme.colors['light-300']};
   text-align: center;
-
-  &::after {
-    content: ' >';
-  }
 
   @media (min-width:${DEVICE_BREAKPOINT.LG}){
     font-size: ${({ theme }) => theme.textSizes['text-regular-3']};
