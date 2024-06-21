@@ -17,10 +17,6 @@ export const DishCardContainer = styled.div`
   position: relative;
   min-height: 20rem;
   width: clamp(12rem, 25vw, 15.5rem);
-
-  .hidden {
-    display: none;
-  }
 `
 
 export const IconWrapper = styled(Link)`
@@ -31,7 +27,7 @@ export const IconWrapper = styled(Link)`
 
   svg {
     color: ${({ theme }) => theme.colors['light-300']};
-    height: 22px;
+    height: 24px;
     width: 24px;
   }
 
@@ -42,7 +38,8 @@ export const IconWrapper = styled(Link)`
 
 export const DishName = styled.p`
   font-family: ${({ theme }) => theme.fonts.popins};
-  font-size: ${({ theme }) => theme.textSizes['text-regular-3']};
+  font-size: ${({ theme }) => theme.textSizes['text-regular-1 ']};
+  font-weight: 400;
   color: ${({ theme }) => theme.colors['light-300']};
   text-align: center;
 
@@ -51,14 +48,36 @@ export const DishName = styled.p`
   }
 
   @media (min-width:${DEVICE_BREAKPOINT.LG}){
+    font-size: ${({ theme }) => theme.textSizes['text-regular-3']};
     font-weight: 700;
   }
 `
 
 export const DishImage = styled.img`
-  height: 88px;
-  width: 88px;
+  height: 5.5rem;
+  width: 5.5rem;
+
+  @media (min-width:${DEVICE_BREAKPOINT.SM}){
+    height: 6.25rem;
+    width: 6.25rem;
+  }
+
+  @media (min-width:${DEVICE_BREAKPOINT.MD}){
+    height: 7rem;
+    width: 7rem;
+  }
+
+  @media (min-width:${DEVICE_BREAKPOINT.LG}){
+    height: 8.5rem;
+    width: 8.5rem;
+  }
+
+  @media (min-width:${DEVICE_BREAKPOINT.XL}){
+    height: 11rem;
+    width: 11rem;
+  }
 `
+
 export const DishDescription = styled.p`
   color: ${({ theme }) => theme.colors['light-400']};
   text-align: center;
@@ -75,12 +94,27 @@ export const DishDescription = styled.p`
 export const DishPrice = styled.p`
   color: ${({ theme }) => theme.colors['cake-200']};
   font-family: ${({ theme }) => theme.fonts.roboto};
-  font-size: ${({ theme }) => theme.textSizes['text-regular-3']};
-`
+  font-size: ${({ theme }) => theme.textSizes['text-regular-2']};
 
+  @media (min-width:${DEVICE_BREAKPOINT.LG}){
+    font-size: ${({ theme }) => theme.textSizes['text-regular-3']};
+  }
+`
 
 export const IncludeDishWrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr 5.75rem;
   grid-column-gap: 1rem;
+  width: 100%;
+
+  > div {
+    margin: 0 auto;
+    max-width: 6.25rem;
+  }
+
+  @media (max-width: ${DEVICE_BREAKPOINT.LG}){
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto; 
+    grid-row-gap: 1rem;
+  }
 `

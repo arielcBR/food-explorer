@@ -13,7 +13,6 @@ export const QuantityInputContainer = styled.div`
 
 export const Quantity = styled.span`
   background: none;
-  border: none;
   color: ${({ theme }) => theme.colors['light-300']};
   font-family: ${({ theme }) => theme.fonts.roboto};
   font-size: ${({ theme }) => theme.textSizes['text-regular-2']};
