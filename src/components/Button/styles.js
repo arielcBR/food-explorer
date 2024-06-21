@@ -16,7 +16,7 @@ export const ButtonContainer = styled.button`
 
   white-space: nowrap;
   max-width: 11.5rem;
-  width: 100%;
+  /* width: 100%; */
 
   &:not(:disabled):hover {
     background: ${({ theme }) => theme.colors['tomato-200']};

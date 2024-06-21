@@ -1,9 +1,8 @@
 import { Minus, Plus } from 'phosphor-react'
-import { IconWrapper, QuantityInputContainer } from './styles'
-import { formatter } from '../../utils/Formatter'
+import { IconWrapper, QuantityInputContainer, Quantity } from './styles'
 import { useState } from 'react'
 
-export function QuantityInput({ size = 'medium' }) {
+export function QuantityInput() {
   const [quantityValue, setQuantityValue] = useState(1)
 
   function handleIncrementQuantity() {
@@ -15,19 +14,13 @@ export function QuantityInput({ size = 'medium' }) {
   }
 
   return (
-    <QuantityInputContainer size={size}>
-      <IconWrapper
-        onClick={handleDecrementQuantity}
-        disabled={quantityValue <= 1}
-      >
-        <Minus size={14} weight="fill" />
+    <QuantityInputContainer>
+      <IconWrapper onClick={handleDecrementQuantity} disabled={quantityValue <= 1}>
+        <Minus weight="fill" />
       </IconWrapper>
-      <input type="number" readOnly value={formatter.number(quantityValue)} />
-      <IconWrapper
-        onClick={handleIncrementQuantity}
-        disabled={quantityValue >= 15}
-      >
-        <Plus size={14} weight="fill" />
+      <Quantity>{quantityValue.toString().padStart(2, '0')}</Quantity>
+      <IconWrapper onClick={handleIncrementQuantity} disabled={quantityValue >= 99}>
+        <Plus weight="fill" />
       </IconWrapper>
     </QuantityInputContainer>
   )

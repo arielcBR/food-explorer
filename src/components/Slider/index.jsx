@@ -54,14 +54,10 @@ export function Slider({ slides }) {
             slidesPerView: 3,
             spaceBetween: 100,
           },
-          1270: {
+          [parseInt(DEVICE_BREAKPOINT.XL)]: {
             slidesPerView: 4,
-            spaceBetween: 80,
-          },
-          1440: {
-            slidesPerView: 5,
-            spaceBetween: 20,
-          },
+            spaceBetween: 10,
+          }
         }}
       >
         {slides.map((slide) => (

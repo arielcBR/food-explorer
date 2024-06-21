@@ -41,6 +41,10 @@ export const GlobalStyled = createGlobalStyle`
     padding-right: 1.5rem;
   }
 
+  .hidden {
+    display: none;
+  }
+
   @media (min-width: ${DEVICE_BREAKPOINT.MD}) {
     .container {
       padding-left: 5rem;

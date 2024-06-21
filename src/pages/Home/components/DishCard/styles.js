@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
+import { DEVICE_BREAKPOINT } from '../../../../styles/deviceBreakpoints'
 
 export const DishCardContainer = styled.div`
   display: flex;
@@ -14,14 +15,15 @@ export const DishCardContainer = styled.div`
   margin-bottom: 1.5rem;
   padding: 1.5rem;
   position: relative;
-  width: clamp(12rem, 25vw, 13.5rem);
+  min-height: 20rem;
+  width: clamp(12rem, 25vw, 15.5rem);
 
   .hidden {
     display: none;
   }
 `
 
-export const FavoriteIconWrapper = styled(Link)`
+export const IconWrapper = styled(Link)`
   cursor: pointer;
   position: absolute;
   top: 1rem;
@@ -39,11 +41,17 @@ export const FavoriteIconWrapper = styled(Link)`
 `
 
 export const DishName = styled.p`
+  font-family: ${({ theme }) => theme.fonts.popins};
+  font-size: ${({ theme }) => theme.textSizes['text-regular-3']};
   color: ${({ theme }) => theme.colors['light-300']};
   text-align: center;
 
   &::after {
     content: ' >';
+  }
+
+  @media (min-width:${DEVICE_BREAKPOINT.LG}){
+    font-weight: 700;
   }
 `
 
@@ -51,14 +59,28 @@ export const DishImage = styled.img`
   height: 88px;
   width: 88px;
 `
-export const DishPrice = styled.p`
-  color: ${({ theme }) => theme.colors['cake-200']};
-`
-
 export const DishDescription = styled.p`
   color: ${({ theme }) => theme.colors['light-400']};
   text-align: center;
   font-family: ${({ theme }) => theme.fonts.roboto};
-  font-size: 14px;
+  font-size: ${({ theme }) => theme.textSizes['text-regular-1']};
   line-height: 160%;
+  text-align: center;
+
+  @media (max-width:${DEVICE_BREAKPOINT.LG}){
+    display: none;
+  }
+`
+
+export const DishPrice = styled.p`
+  color: ${({ theme }) => theme.colors['cake-200']};
+  font-family: ${({ theme }) => theme.fonts.roboto};
+  font-size: ${({ theme }) => theme.textSizes['text-regular-3']};
+`
+
+
+export const IncludeDishWrapper = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 5.75rem;
+  grid-column-gap: 1rem;
 `
