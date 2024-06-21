@@ -3,6 +3,9 @@ import { DEVICE_BREAKPOINT } from '../../styles/deviceBreakpoints'
 
 export const HeaderContainer = styled.header`
   background: ${({ theme }) => theme.colors['dark-700']};
+  position: sticky;
+  top: 0;
+  z-index: 100;
 `
 
 const HeaderContent = styled.div`

@@ -12,13 +12,10 @@ export const FooterContainer = styled.footer`
   padding-bottom: 1.5rem;
   padding-top: 1.5rem;
   margin: 0 auto;
-  position: sticky;
-  bottom: 0;
   width: 100%;
-  z-index: 1000;
 
   > a {
-    width: 142px;
+    width: 8.875rem;
   }
 
   > p {
