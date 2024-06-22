@@ -68,7 +68,7 @@ export const CompleteSignUp = styled.form`
     gap: 0.5rem;
   }
 
-  > button {
+  .button-submit {
     max-width: none;
   }
 

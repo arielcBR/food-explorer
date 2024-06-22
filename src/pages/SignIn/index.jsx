@@ -51,7 +51,13 @@ export function SignIn() {
           />
         </div>
 
-        <Button variant="normal" type="submit" text="Entrar" />
+        <Button 
+          as="button" 
+          variant="normal" 
+          type="submit" 
+          text="Entrar" 
+          className="button-submit"  
+        />
 
         <CustomLink to="/register" text="Criar uma conta" />
       </CompleteSignIn>

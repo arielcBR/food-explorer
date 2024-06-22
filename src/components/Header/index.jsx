@@ -47,6 +47,7 @@ export function Header() {
         <Button
           text={isAdmin ? 'Novo prato' : 'Pedidos (0)'}
           icon={!isAdmin ? <Receipt /> : null}
+          to={!isAdmin ? '/admin/newPlate' : ''}
         />
 
         <SignOut onClick={handleLogout} />

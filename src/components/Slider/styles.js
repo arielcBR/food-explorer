@@ -1,14 +1,18 @@
 import styled from 'styled-components'
 import { DEVICE_BREAKPOINT } from '../../styles/deviceBreakpoints'
+import { Swiper } from 'swiper/react';
 
-export const CarouselContainer = styled.div`
-  position: relative;
 
+export const StyledSwiper = styled(Swiper)`
   .swiper-button-prev,
   .swiper-button-next {
     transition: 0.3s ease-in-out;
-    z-index: 1000;
+    z-index: 500; 
   }
+`
+
+export const CarouselContainer = styled.div`
+  position: relative;
 `
 
 const GradientOverlay = styled.div`

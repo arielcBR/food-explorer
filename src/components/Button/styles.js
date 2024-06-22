@@ -1,7 +1,8 @@
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 import { DEVICE_BREAKPOINT } from '../../styles/deviceBreakpoints'
 
-export const ButtonContainer = styled.button`
+export const ButtonContainer = styled(Link)`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -13,7 +14,7 @@ export const ButtonContainer = styled.button`
   cursor: pointer;
   font-family: ${({ theme }) => theme.fonts.poppins};
   font-weight: 500;
-
+  text-decoration: none;
   white-space: nowrap;
   max-width: 11.5rem;
   /* width: 100%; */

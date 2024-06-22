@@ -25,6 +25,21 @@ function AuthProvider({ children }) {
     }
   }
 
+  async function signUp(name, email, password) {
+    try {
+      const response = await api.post('/users', {name, email, password})
+
+      if(response.status === 201)
+        alert('Usuário cadastrado com sucesso!')
+    } 
+    catch (error) {
+      if (error.response) {
+        alert(error.response.data.message)
+      } 
+    }
+  }
+  
+
   async function logout() {
     localStorage.removeItem('@foodexplorer:user')
     localStorage.removeItem('@foodexplorer:token')
@@ -47,7 +62,7 @@ function AuthProvider({ children }) {
   }, [])
 
   return (
-    <AuthContext.Provider value={{ user: data.user, signIn, logout }}>
+    <AuthContext.Provider value={{ user: data.user, signIn, signUp, logout }}>
       {children}
     </AuthContext.Provider>
   )

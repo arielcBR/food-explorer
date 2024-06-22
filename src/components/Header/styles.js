@@ -7,7 +7,6 @@ export const HeaderContainer = styled.header`
   top: 0;
   z-index: 100;
 `
-
 const HeaderContent = styled.div`
   display: flex;
   align-items: center;
@@ -26,13 +25,11 @@ const HeaderContent = styled.div`
     }
   }
 `
-
 export const HeaderContentMobile = styled(HeaderContent)`
   @media (min-width: ${DEVICE_BREAKPOINT.LG}) {
     display: none;
   }
 `
-
 export const HeaderContentDesktop = styled(HeaderContent)`
   > svg {
     display: flex;
@@ -43,7 +40,7 @@ export const HeaderContentDesktop = styled(HeaderContent)`
     width: 1.5rem;
   }
 
-  @media (max-width: 1023px) {
+  @media (max-width: ${DEVICE_BREAKPOINT.LG}) {
     display: none;
   }
 
@@ -66,12 +63,10 @@ export const HeaderContentDesktop = styled(HeaderContent)`
     }
   }
 `
-
 export const OrderWrapper = styled.div`
   display: flex;
   position: relative;
 `
-
 export const AmountOfOrders = styled.div`
   border-radius: 50%;
   background: ${({ theme }) => theme.colors['tomato-100']};

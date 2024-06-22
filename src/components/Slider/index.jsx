@@ -3,8 +3,9 @@ import {
   CarouselContainer,
   GradientOverlayLeft,
   GradientOverlayRight,
+  StyledSwiper,
 } from './styles'
-import { Swiper, SwiperSlide } from 'swiper/react'
+import { SwiperSlide } from 'swiper/react'
 import { Pagination, Navigation, A11y } from 'swiper/modules'
 import { DishCard } from '../../pages/Home/components/DishCard'
 import { DEVICE_BREAKPOINT } from '../../styles/deviceBreakpoints'
@@ -30,7 +31,7 @@ export function Slider({ slides }) {
 
   return (
     <CarouselContainer>
-      <Swiper
+      <StyledSwiper
         modules={[Navigation, Pagination, A11y]}
         pagination={{ clickable: true }}
         navigation={desktopViewportWidth}  
@@ -70,7 +71,7 @@ export function Slider({ slides }) {
             }}    />
           </SwiperSlide>
         ))}    
-      </Swiper>
+      </StyledSwiper>
 
       <GradientOverlayLeft />
       <GradientOverlayRight />
