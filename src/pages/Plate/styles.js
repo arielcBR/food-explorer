@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Button } from '../../components/Button'
+import { DEVICE_BREAKPOINT } from '../../styles/deviceBreakpoints'
 
 export const PlateContainer = styled.div`
   display: flex;
@@ -7,20 +7,58 @@ export const PlateContainer = styled.div`
   align-items: center;
 
   background: ${({ theme }) => theme.colors['dark-400']};
-  padding: 2.2rem 3.5rem;
-  max-width: 26.75rem;
+  padding: 2.2rem 0 2.2rem 0;
+  margin: 0 auto;
   width: 100%;
 
   > a {
     align-self: flex-start;
   }
 
-  > img {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    height: 264px;
-    width: 264px;
+  > main {
+    max-width: 26.75rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+
+    img {
+      margin: 1rem auto;
+      height: 16.5rem;
+      width: 16.5rem;
+    }
+    
   }
+
+  @media (min-width: ${DEVICE_BREAKPOINT.LG}) {
+    > main {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;  
+      gap: 2rem;
+
+      max-width: none;
+      margin-top: 4rem;
+
+      > img {
+        height: 19rem;
+        width: 19rem;
+      }
+    }
+  }
+
+  @media (min-width: ${DEVICE_BREAKPOINT.XL}) {
+    > main {
+      gap: 3rem;
+      > img {
+        height: 24.375rem;
+        width: 24.375rem;
+      }
+    }
+  }
+
 `
 export const PlateDetails = styled.div`
   display: flex;
@@ -42,20 +80,53 @@ export const PlateDetails = styled.div`
   > p {
     font-size: 1rem;
     margin-bottom: 1.5rem;
+    text-align: center;
+  }
+
+  @media (min-width: ${DEVICE_BREAKPOINT.LG}) {
+    align-items: flex-start;
+
+    > p {
+      text-align: start;
+    }
   }
 `
 export const IngredientTagsWrapper = styled.div`
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-`
-
-export const StyledButton = styled(Button)`
-  flex: 1;
-`
-
-export const PlateFooter = styled.div`
   display: flex;
-  gap: 1rem;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+
   width: 100%;
+
+  @media (min-width: ${DEVICE_BREAKPOINT.LG}) {
+    justify-content: flex-start;
+  }
+`
+export const PlateFooter = styled.div`
+  > button { 
+    width: 100%;
+  }
+
+  > div {
+    display: grid;
+    grid-template-columns: 35% auto;
+    grid-column-gap: 1rem;
+  }
+
+  @media (min-width: ${DEVICE_BREAKPOINT.LG}) {
+    > button { 
+      width: fit-content;
+    }
+    
+    > div {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 2rem;
+
+      width: fit-content;
+    }
+  }
 `

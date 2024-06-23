@@ -34,7 +34,7 @@ export function MenuMobile() {
           <ul>
             {user.isAdmin && (
               <li>
-                <CustomLink to="#" text="Novo prato" />
+                <CustomLink to="/admin/newPlate" text="Novo prato" />
               </li>
             )}
             <li onClick={handleLogout}>
