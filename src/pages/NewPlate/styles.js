@@ -55,12 +55,3 @@ export const NewPlateContainer = styled.div`
   }
 
 `
-export const ButtonsWrapper = styled.div`
-  display: flex;
-  gap: 2rem;
-
-  > button {
-    font-size: ${({ theme }) => theme.textSizes['text-regular-0']};
-    height: 3rem;
-  }
-`
