@@ -23,6 +23,7 @@ export const FileInputContainer = styled.label`
     font-size: ${({ theme }) => theme.textSizes['text-regular-1']};
     font-weight: 500;
     line-height: 150%;
+    white-space: nowrap;
   }
 
   input[type='file'] {

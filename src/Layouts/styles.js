@@ -8,6 +8,7 @@ export const LayoutContainer = styled.div`
 
   background: ${({ theme }) => theme.colors['dark-400']};
   margin: 0 auto;
+  /* max-width: 70rem; */
   width: 100%;
 `
 

@@ -6,11 +6,11 @@ import { Button } from '../../components/Button'
 export function NewPlate() {
   return (
     <NewPlateContainer>
-      <CustomLink to="#" text="voltar" icon="true" />
+      <CustomLink to="/" text="voltar" icon="true" />
       <h2>Novo prato</h2>
       <Form id="plateForm" />
       <Button
-        variant="normal"
+        as="button"
         form="plateForm"
         type="submit"
         text="Salvar alterações"

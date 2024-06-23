@@ -1,12 +1,14 @@
 import styled from 'styled-components'
+import { DEVICE_BREAKPOINT } from '../../styles/deviceBreakpoints'
 
 export const NewPlateContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
 
-  padding: 0.6rem 3.5rem 2.2rem 3.5rem;
-  max-width: 26.75rem;
+  margin: 0 auto;
+  padding: 0.6rem 0 2.2rem 0;
+  max-width: 38rem;
   width: 100%;
 
   > a {
@@ -21,7 +23,7 @@ export const NewPlateContainer = styled.div`
     }
   }
 
-  > h2 {
+    > h2 {
     align-self: flex-start;
 
     color: ${({ theme }) => theme.colors['light-300']};
@@ -36,9 +38,22 @@ export const NewPlateContainer = styled.div`
     margin-bottom: 1.5rem;
   }
 
-  > button {
-    height: 3rem;
+  > button { 
+    max-width: none;
+    width: 100%;
   }
+
+  @media (min-width: ${DEVICE_BREAKPOINT.LG}){
+    & {
+      max-width: 70rem;
+    }
+
+    > button { 
+      align-self: flex-end;
+      width: 11rem;
+    }
+  }
+
 `
 export const ButtonsWrapper = styled.div`
   display: flex;
