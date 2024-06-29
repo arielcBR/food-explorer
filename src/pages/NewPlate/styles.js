@@ -9,6 +9,7 @@ export const NewPlateContainer = styled.div`
   margin: 0 auto;
   padding: 0.6rem 0 2.2rem 0;
   max-width: 38rem;
+  min-height: 100vh;
   width: 100%;
 
   > a {
@@ -45,7 +46,12 @@ export const NewPlateContainer = styled.div`
 
   @media (min-width: ${DEVICE_BREAKPOINT.LG}){
     & {
-      max-width: 70rem;
+      max-width: 80rem;
+      padding-top: 3rem;
+    }
+  
+    > a {
+      font-size: ${({theme}) => theme.textSizes['text-regular-3']};
     }
 
     > button { 

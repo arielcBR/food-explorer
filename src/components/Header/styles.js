@@ -6,6 +6,7 @@ export const HeaderContainer = styled.header`
   position: sticky;
   top: 0;
   z-index: 100;
+  min-height: 5.9375rem;
 `
 const HeaderContent = styled.div`
   display: flex;

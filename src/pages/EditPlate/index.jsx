@@ -7,7 +7,7 @@ import { Button } from '../../components/Button'
 export function EditPlate() {
   return (
     <NewPlateContainer>
-      <CustomLink to="#" text="voltar" icon="true" />
+      <CustomLink to="/" text="voltar" icon="true" />
       <h2>Editar prato</h2>
       <Form id="plateForm" />
       <ButtonsWrapper>
