@@ -11,8 +11,10 @@ import { InputWithIcon } from '../InputWithIcon'
 import { Button } from '../Button'
 import { useMenu } from '../../context/MenuContext'
 import { useAuth } from '../../hooks/AuthContext'
+import { useNavigate } from 'react-router-dom'
 
 export function Header() {
+  const navigate = useNavigate()
   const { user, logout } = useAuth()
   const isAdmin = user ? user.isAdmin : false
   const { statusMobileMenu } = useMenu()
@@ -23,6 +25,7 @@ export function Header() {
 
   function handleLogout() {
     logout()
+    navigate('/')
   }
 
   return (
