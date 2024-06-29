@@ -15,7 +15,7 @@ width: 100%;
   padding-bottom: 1.5rem;
   padding-top: 1.5rem;
   margin: 0 auto;
-  max-width: 70rem;
+  max-width: 102rem;
 
   > a {
     width: 8.875rem;

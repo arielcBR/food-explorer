@@ -17,7 +17,7 @@ export const InputWrapper = styled.div`
     align-items: center;
     justify-content: flex-end;
     min-width: 1.5rem;
-    width: clamp(1.5rem, 25vw, 6.25rem);
+    width: clamp(1.5rem, 25vw, 50%);
 
     svg {
       height: 1.5rem;
@@ -46,12 +46,16 @@ export const InputWrapper = styled.div`
 export const InputStyled = styled.input`
   background: ${({ theme }) => theme.colors['dark-900']};
   border: none;
-  color: ${({ theme }) => theme.colors['text-regular-2']};
+  color: ${({ theme }) => theme.colors['light-100']};
   font-size: 1rem;
   line-height: 100%;
   width: 100%;
 
   &:focus {
     outline: none;
+  }
+
+  &::placeholder {
+    font-size: 0.875rem;
   }
 `

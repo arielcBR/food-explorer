@@ -31,7 +31,15 @@ export const HeaderContentMobile = styled(HeaderContent)`
   }
 `
 export const HeaderContentDesktop = styled(HeaderContent)`
-  max-width: 70rem;
+  display: grid;
+  grid-template-rows: auto;
+  grid-template-columns: 21% 1fr 10rem 2rem;
+  column-gap: 1rem;
+  max-width: 102rem;
+
+  > div {
+    max-width: 60rem;
+  }
 
   > svg {
     display: flex;
@@ -47,14 +55,13 @@ export const HeaderContentDesktop = styled(HeaderContent)`
   }
 
   @media (min-width: ${DEVICE_BREAKPOINT.LG}) {
-    gap: 1rem;
-
     padding: 1.5rem 0 1.5rem 0;
     margin: 0 auto;
   }
 
   @media (min-width: ${DEVICE_BREAKPOINT.XL}) {
-    gap: 2rem;
+    grid-template-columns: 18% 1fr 13.5rem 2rem;
+    column-gap: 2rem;
 
     padding: 1.5rem 0 1.5rem 0;
     margin: 0 auto;
