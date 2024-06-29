@@ -43,12 +43,12 @@ export function Header() {
         <InputWithIcon
           placeholder="Busque por pratos ou ingredientes"
           icon={<MagnifyingGlass size={32} />}
-        />
+          />
         <Button
           text={isAdmin ? 'Novo prato' : 'Pedidos (0)'}
           icon={!isAdmin ? <Receipt /> : null}
           to={isAdmin ? '/admin/newPlate' : '/cart'}
-        />
+          />
 
         <SignOut onClick={handleLogout} />
       </HeaderContentDesktop>

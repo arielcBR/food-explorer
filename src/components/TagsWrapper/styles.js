@@ -6,6 +6,7 @@ export const TagsWrapperContainer = styled.div`
 
   background: ${({ theme }) => theme.colors['dark-800']};
   border-radius: 8px;
+  cursor: pointer;
   font-family: ${({ theme }) => theme.fonts.roboto};
   font-size: ${({ theme }) => theme.textSizes['text-regular-1']};
   line-height: 100%;

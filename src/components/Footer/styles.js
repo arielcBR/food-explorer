@@ -3,30 +3,36 @@ import { Link } from 'react-router-dom'
 import { DEVICE_BREAKPOINT } from '../../styles/deviceBreakpoints'
 
 export const FooterContainer = styled.footer`
+background: ${({ theme }) => theme.colors['dark-600']};
+width: 100%;
+
+> div {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 0.5rem;
-
-  background: ${({ theme }) => theme.colors['dark-600']};
+  
   padding-bottom: 1.5rem;
   padding-top: 1.5rem;
   margin: 0 auto;
-  width: 100%;
+  max-width: 70rem;
 
   > a {
     width: 8.875rem;
   }
-
+  
   > p {
     color: ${({ theme }) => theme.colors['light-200']};
     font-family: ${({ theme }) => theme.fonts.dmSans};
     font-weight: 400;
     font-size: ${({ theme }) => theme.textSizes['text-regular-0']};
   }
+}
+
+
 
   @media (min-width: ${DEVICE_BREAKPOINT.SM}) {
-    & {
+    > div {
       flex-direction: row;
       align-items: center;
       justify-content: space-between;

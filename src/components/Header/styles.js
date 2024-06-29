@@ -31,6 +31,8 @@ export const HeaderContentMobile = styled(HeaderContent)`
   }
 `
 export const HeaderContentDesktop = styled(HeaderContent)`
+  max-width: 70rem;
+
   > svg {
     display: flex;
     align-items: center;
