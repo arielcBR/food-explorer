@@ -15,6 +15,7 @@ export const DishCardContainer = styled.div`
   margin-bottom: 1.5rem;
   padding: 1.5rem;
   position: relative;
+  text-decoration: none;
   min-height: 20rem;
   width: clamp(12.5rem, 25vw, 15.5rem);
 
