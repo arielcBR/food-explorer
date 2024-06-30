@@ -39,6 +39,10 @@ export const IconWrapper = styled(Link)`
   &:hover {
     color: ${({ theme }) => theme.colors['light-500']};
   }
+
+  .favorite {
+    color: red;
+  }
 `
 
 export const DishName = styled.p`

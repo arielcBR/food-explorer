@@ -66,7 +66,7 @@ export function Slider({ slides }) {
             <DishCard dish={{
               name: slide.name,
               description: slide.description,
-              image: imageDish,
+              picture: imageDish,
               price: slide.price,
             }}    />
           </SwiperSlide>
