@@ -51,6 +51,7 @@ export const DishName = styled.p`
   font-weight: 400;
   color: ${({ theme }) => theme.colors['light-300']};
   text-align: center;
+  text-transform: capitalize;
 
   @media (min-width:${DEVICE_BREAKPOINT.LG}){
     font-size: ${({ theme }) => theme.textSizes['text-regular-3']};

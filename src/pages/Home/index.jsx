@@ -7,9 +7,9 @@ export function Home() {
     <>
       <HomeContainer>
         <Banner />
-        <OurDishes title="Refeições" />
-        <OurDishes title="Pratos principais" />
-        <OurDishes title="Bebidas principais" />
+        <OurDishes title="Refeições" category="meal" />
+        <OurDishes title="Pratos principais" category="dessert" />
+        <OurDishes title="Bebidas principais" category="drink" />
       </HomeContainer>
     </>
   )

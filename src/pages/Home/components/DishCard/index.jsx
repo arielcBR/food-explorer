@@ -19,7 +19,6 @@ export function DishCard({dish}) {
   const isAdmin = user ? user.isAdmin : false
 
   const {id, name, description, price, picture} = dish;
-  const idDish = '12'
   const dishFavorite = false
   const priceFormatted = formatter.currency(price)
 
@@ -27,19 +26,19 @@ export function DishCard({dish}) {
     <DishCardContainer>
       {isAdmin 
         ? 
-        <IconWrapper to={`/admin/editPlate/${idDish}`}>
+        <IconWrapper to={`/admin/editPlate/${id}`}>
           <PencilSimple />
         </IconWrapper>
         : 
         <IconWrapper to={`/setFavorite`}>
           <Heart 
             weight={dishFavorite ? "fill" : "regular"} 
-            className={dishFavorite && "favorite"} 
+            className={dishFavorite ? "favorite" : ""} 
           />
         </IconWrapper>
       }
 
-      <Link to={`/plate/${idDish}`}>
+      <Link to={`/plate/${id}`}>
         <DishImage src={picture} />
       </Link>
       <DishName>{name}</DishName>

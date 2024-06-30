@@ -11,9 +11,7 @@ import { DishCard } from '../../pages/Home/components/DishCard'
 import { DEVICE_BREAKPOINT } from '../../styles/deviceBreakpoints'
 import 'swiper/swiper-bundle.css'
 
-import imageDish from '../../assets/image 2.png'
-
-export function Slider({ slides }) {
+export function Slider({slides}) {
   const [desktopViewportWidth, setDesktopViewportWidth] = useState(false)
 
   function updateNavigationSwiper () {
@@ -62,13 +60,8 @@ export function Slider({ slides }) {
         }}
       >
         {slides.map((slide) => (
-          <SwiperSlide key={slide.image}>
-            <DishCard dish={{
-              name: slide.name,
-              description: slide.description,
-              picture: imageDish,
-              price: slide.price,
-            }}    />
+          <SwiperSlide key={slide.id}>
+            <DishCard dish={slide} />
           </SwiperSlide>
         ))}    
       </StyledSwiper>
