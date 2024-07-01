@@ -11,8 +11,8 @@ function AuthProvider({ children }) {
   async function signIn(email, password) {
     try {
       const response = await api.post('/sessions', { email, password })
-      const { token } = response.data
-
+      const { token, user } = response.data
+      
       localStorage.setItem('@foodexplorer:user', JSON.stringify(user))
       localStorage.setItem('@foodexplorer:token', JSON.stringify(token))
 
