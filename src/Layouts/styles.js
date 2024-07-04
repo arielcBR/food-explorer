@@ -8,7 +8,14 @@ export const LayoutContainer = styled.div`
 
   background: ${({ theme }) => theme.colors['dark-400']};
   margin: 0 auto;
+  position: relative;
   width: 100%;
+
+  > footer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+  }
   `
 
 export const Content = styled.div`
