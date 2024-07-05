@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { api } from '../../../../services/api'
+import { getDishPicture } from '../../../../services/api'
 import { useEffect, useState } from 'react'
 import { Heart, PencilSimple } from 'phosphor-react'
 import {
@@ -25,19 +25,13 @@ export function DishCard({dish}) {
   const dishFavorite = false
   const priceFormatted = formatter.currency(price)
 
-  async function getDishPicture() {
-    try {
-      const response = await api.get(`/files/${picture}`, { responseType: 'blob' })
-      const imageBlob = response.data
-      const imageObjectURL = URL.createObjectURL(imageBlob)
-      setImg(imageObjectURL)
-    } catch (error) {
-      console.error('Error fetching image:', error)
-    }
+  async function getPicture() {
+    const image = await getDishPicture(picture)
+    setImg(image)
   }
 
   useEffect(() => {
-    getDishPicture()
+    getPicture()
   }, [])
 
   return (

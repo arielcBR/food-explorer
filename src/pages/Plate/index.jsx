@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react'
 import {
   PlateContainer,
   PlateDetails,
@@ -10,31 +11,45 @@ import { IngredientTag } from './components/IngredientTag'
 import { Button } from '../../components/Button'
 import { QuantityInput } from '../../components/QuantityInput'
 import { useAuth } from '../../hooks/AuthContext'
+import { getDish, getDishIngredients } from '../../services/api'
+import { useParams } from 'react-router-dom'
 
 export function Plate() {
+  const { dishId } = useParams()
+  const [ingredientList, setIngredientList] = useState([])
+  const [dish, setDish] = useState({})
   const { user } = useAuth()
   const isAdmin = user ? user.isAdmin : false
+
+  const ingredients = [{id: 1, name: 'tomate'}, {id: 2, name: 'cebola'}, {id: 3, name: 'queijo'}, {id: 4, name: 'massa'}]
   
-  // mock
-  const tags = ['alface', 'cebola', 'pão', 'pepino', 'rabanete', 'tomate', 'molho']
+  async function getDishDetails() {
+    const response = await getDish(dishId)
+    setDish(response)
+  }
+    
+  // async function getIngredients() {
+  //   const result = getDishIngredients()
+  //   setIngredientList(result)
+  // }
+
+  useEffect(() => {
+    getDishDetails()
+    // getIngredients()
+  },[])
 
   return (
     <PlateContainer>
       <CustomLink to='/' icon="true" text="voltar" />
       <main>
-        <img
-          src="https://s3-alpha-sig.figma.com/img/b0c9/ae3d/7ca1a259f937ab6aebbc5ba2ffd2d4ab?Expires=1719792000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=mOOJ1b3kApnWabHbl-gOYFASyQBsUsIGgX2RjmmdfnhYYCPKSfVw~qdsTouPk1VvsqsaK52~WL~sPBmea8PPx41rHnRpB~mw4yQXrunY3-gDbqsbzlxcrlkuZ9xC6o1yAiFJVkoBNg5WB9q9DUSq4EGgXKPpSFDpVNbDsVCOacclxl-~sNL~GVO3Q1b9m6xWA8u2OyZenUsvZcJE8JFqqdivyTlyFDS8Viv4nN0co~WiVR82NoBVZCjczrHq~5mOEdR5yNt~yKaBDBMPQ1MDwMpIBgodiwLybfmxiXgDuphAjtx7wgIA4nbVulERh~SsNfpHZRGhDVT1VidPdGQxbQ__"
-          alt=""
-        />
+        <img src={dish.picture} alt="" />
 
         <div>
           <PlateDetails>
-            <h2>Salada Ravanello</h2>
-            <p>
-              Rabanetes, folhas verdes e molho agridoce salpicados com gergelim.
-            </p>
+            <h2>{dish.name}</h2>
+            <p>{dish.description}</p>
             <IngredientTagsWrapper>
-              {tags.map(tag => <IngredientTag text={tag} />)}
+              {ingredients.map(tag => <IngredientTag key={tag.id} text={tag.name} />)}
             </IngredientTagsWrapper>
           </PlateDetails>
           <PlateFooter>
@@ -43,7 +58,7 @@ export function Plate() {
               : (
               <div>
                 <QuantityInput />
-                <Button icon={<Receipt />} text="Pedir - R$25,00" />
+                <Button icon={<Receipt />} text={`Pedir - R$${dish.price}`} />
               </div>
             )}
           </PlateFooter>

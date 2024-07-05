@@ -5,3 +5,57 @@ const URL_SERVER = 'http://localhost:4000'
 export const api = axios.create({
   baseURL: URL_SERVER
 })
+
+
+api.interceptors.request.use(config => {
+  const token = JSON.parse(localStorage.getItem('@foodexplorer:token'));
+
+  if (token) {
+    config.headers.Authorization = `Bearer ${token}`;
+  }
+  return config;
+});
+
+export async function getDishPicture(picture) {
+  try {
+    const response = await api.get(`/files/${picture}`, { responseType: 'blob' })
+    const imageBlob = response.data
+    const imageObjectURL = URL.createObjectURL(imageBlob)
+    return imageObjectURL
+  } catch (error) {
+    console.error('Error fetching image:', error)
+  }
+}
+
+export async function getDish(id) {
+    try {
+      const response = await api.get(`/dish/${id}`)
+      const dish = response.data.dish
+      dish.picture = await getDishPicture(dish.picture)
+      return dish
+      
+    } catch (error) {
+      console.log(error)
+    }
+}
+
+export async function getAllDishes(category){
+  try {
+    const response = await api.get('/dish/')
+    const dishesFiltered = response.data.dishes.filter((dish) => dish.category === category)
+    return dishesFiltered
+
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+export async function getDishIngredients(id) {
+  // try {
+  //   const response = await api.get(`/dish/ingredients/${id}`)
+  //   return response.data.ingredients
+    
+  // } catch (error) {
+  //   console.log(error)
+  // }
+}

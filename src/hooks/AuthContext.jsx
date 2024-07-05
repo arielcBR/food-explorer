@@ -43,8 +43,6 @@ function AuthProvider({ children }) {
   async function logout() {
     localStorage.removeItem('@foodexplorer:user')
     localStorage.removeItem('@foodexplorer:token')
-
-    api.defaults.headers.common.Authorization = ''
     setData({})
   }
 
@@ -53,7 +51,6 @@ function AuthProvider({ children }) {
     const token = localStorage.getItem('@foodexplorer:token')
 
     if (token && user) {
-      api.defaults.headers.common.authorization = `Bearer ${token}`
       setData({
         user: JSON.parse(user),
         token,

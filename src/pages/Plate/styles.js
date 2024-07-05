@@ -75,6 +75,7 @@ export const PlateDetails = styled.div`
     font-size: 1.6875rem;
     font-weight: 500;
     margin-bottom: 1.5rem;
+    text-transform: capitalize;
   }
 
   > p {

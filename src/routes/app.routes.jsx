@@ -14,7 +14,7 @@ export function AppRoutes() {
     <Routes>
       <Route path="/" element={<DefaultLayout />}>
         <Route path="/" element={<Home />} />
-        <Route path="/plate/:id" element={<Plate />} />
+        <Route path="/plate/:dishId" element={<Plate />} />
       </Route>
 
       {user.isAdmin && (
