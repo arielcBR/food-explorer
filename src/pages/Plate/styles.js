@@ -117,7 +117,7 @@ export const PlateFooter = styled.div`
   }
 
   @media (min-width: ${DEVICE_BREAKPOINT.LG}) {
-    > button { 
+    > a { 
       width: fit-content;
     }
     

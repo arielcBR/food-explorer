@@ -29,7 +29,7 @@ export async function getDishPicture(picture) {
 
 export async function getDish(id) {
     try {
-      const response = await api.get(`/dish/${id}`)
+      const response = await api.get(`/dish/${id}`)                        
       const dish = response.data.dish
       dish.picture = await getDishPicture(dish.picture)
       return dish
@@ -48,14 +48,4 @@ export async function getAllDishes(category){
   } catch (error) {
     console.log(error)
   }
-}
-
-export async function getDishIngredients(id) {
-  // try {
-  //   const response = await api.get(`/dish/ingredients/${id}`)
-  //   return response.data.ingredients
-    
-  // } catch (error) {
-  //   console.log(error)
-  // }
 }

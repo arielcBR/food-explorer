@@ -11,31 +11,22 @@ import { IngredientTag } from './components/IngredientTag'
 import { Button } from '../../components/Button'
 import { QuantityInput } from '../../components/QuantityInput'
 import { useAuth } from '../../hooks/AuthContext'
-import { getDish, getDishIngredients } from '../../services/api'
+import { getDish } from '../../services/api'
 import { useParams } from 'react-router-dom'
 
 export function Plate() {
   const { dishId } = useParams()
-  const [ingredientList, setIngredientList] = useState([])
   const [dish, setDish] = useState({})
   const { user } = useAuth()
   const isAdmin = user ? user.isAdmin : false
 
-  const ingredients = [{id: 1, name: 'tomate'}, {id: 2, name: 'cebola'}, {id: 3, name: 'queijo'}, {id: 4, name: 'massa'}]
-  
   async function getDishDetails() {
     const response = await getDish(dishId)
     setDish(response)
   }
     
-  // async function getIngredients() {
-  //   const result = getDishIngredients()
-  //   setIngredientList(result)
-  // }
-
   useEffect(() => {
     getDishDetails()
-    // getIngredients()
   },[])
 
   return (
@@ -49,12 +40,14 @@ export function Plate() {
             <h2>{dish.name}</h2>
             <p>{dish.description}</p>
             <IngredientTagsWrapper>
-              {ingredients.map(tag => <IngredientTag key={tag.id} text={tag.name} />)}
+              {dish.ingredients && dish.ingredients.map(ingredient => (
+                <IngredientTag key={ingredient.id} text={ingredient.name} />
+              ))}
             </IngredientTagsWrapper>
           </PlateDetails>
           <PlateFooter>
             {isAdmin 
-              ? <Button as="button" text="Editar prato" />
+              ? <Button to={`/admin/editPlate/${dishId}`} text="Editar prato" />
               : (
               <div>
                 <QuantityInput />
