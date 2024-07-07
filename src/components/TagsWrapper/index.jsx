@@ -1,15 +1,44 @@
-import { TagsWrapperContainer, NewTag } from './styles'
-import { Plus } from 'phosphor-react'
-import { Tag } from '../Tag'
+import { TagsWrapperContainer, Tag, NewTag } from './styles'
+import { Plus, X } from 'phosphor-react'
+import { useEffect, useState } from 'react'
 
-export function TagsWrapper() {
+export function TagsWrapper({ingredients, updateIngredientList}) {
+  const [ingredientList, setIngredientList] = useState([])
+  const [newIngredient, setNewIngredient] = useState('')
+
+  function handleDeleteIngredient(id){
+    const newIngredientList = ingredientList.filter(item => item.id != id)
+    updateIngredientList(newIngredientList)
+  }
+  
+  function handleAddIngredient(){
+    updateIngredientList(prev => [...prev, {id: null, name: newIngredient}])
+    setNewIngredient('')
+  }
+
+  useEffect(()=>{
+    setIngredientList(ingredients)
+  }, [ingredients])
+
   return (
     <TagsWrapperContainer>
-      <Tag text="Pão" />
+      {
+        ingredientList.map(ingredient => (
+          <Tag key={ingredient.id}>
+            <p>{ingredient.name}</p>
+            <X onClick={() => handleDeleteIngredient(ingredient.id)} />
+          </Tag>
+        ))
+      }
 
       <NewTag>
-        <p>Adicionar</p>
-        <Plus />
+        <input 
+          type="text" 
+          placeholder='Adicionar'
+          onChange={(event) => setNewIngredient(event.target.value)}
+          value={newIngredient}
+        />
+        <Plus onClick={handleAddIngredient} />
       </NewTag>
     </TagsWrapperContainer>
   )

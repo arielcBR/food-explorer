@@ -49,3 +49,12 @@ export async function getAllDishes(category){
     console.log(error)
   }
 }
+
+export async function updateDish(id, dishUpdated){
+  try { 
+    const response = await api.patch(`/dish/${id}`, {...dishUpdated})   
+    return response
+  } catch (error) {
+    console.log(error)
+  }
+}

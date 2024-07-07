@@ -30,10 +30,12 @@ export const GlobalStyled = createGlobalStyle`
 
   input, button, textarea {
     border: none;
+    box-shadow: none;
   }
 
   input:focus { 
-    outline: none;
+      outline: 0; 
+      -webkit-box-shadow: none;
   }
 
   .container {

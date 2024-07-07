@@ -21,7 +21,7 @@ export function AppRoutes() {
         <>
           <Route path="/admin" element={<DefaultLayout />}>
             <Route path="/admin/newPlate" element={<NewPlate />} />
-            <Route path="/admin/editPlate/:id" element={<EditPlate />} />
+            <Route path="/admin/editPlate/:dishId" element={<EditPlate />} />
           </Route>
         </>
       )}
