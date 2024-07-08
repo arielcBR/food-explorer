@@ -38,6 +38,13 @@ export const GlobalStyled = createGlobalStyle`
       -webkit-box-shadow: none;
   }
 
+  input[type=number]::-webkit-outer-spin-button,
+  input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: textfield;
+    margin: 0;
+  }
+
   .container {
     padding-left: 1.5rem;
     padding-right: 1.5rem;

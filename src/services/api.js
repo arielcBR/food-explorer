@@ -50,11 +50,21 @@ export async function getAllDishes(category){
   }
 }
 
-export async function updateDish(id, dishUpdated){
-  try { 
-    const response = await api.patch(`/dish/${id}`, {...dishUpdated})   
-    return response
-  } catch (error) {
-    console.log(error)
+export async function updateDish(id, dishUpdated, imageFile){
+  if(dishUpdated && id){
+    try { 
+      const formData = new FormData()
+      formData.append('dishPicture', imageFile)
+      formData.append('updatedDish', JSON.stringify(dishUpdated))
+
+      const response = await api.patch(`/dish/${id}`, formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+      }) 
+      return response
+    } catch (error) {
+      console.log(error)
+    }
   }
 }

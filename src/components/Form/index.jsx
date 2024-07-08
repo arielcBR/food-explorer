@@ -16,6 +16,7 @@ export function Form({ id, dish }) {
   const [price, setPrice] = useState('')
   const [description, setDescription] = useState('')
   const [ingredients, setIngredients] = useState([])
+  const [imageFile, setImageFile] = useState('')
 
   function updateIngredientList(newList) {
     setIngredients(newList)
@@ -23,6 +24,10 @@ export function Form({ id, dish }) {
 
   function updateCategory(newCategory){
     setCategory(newCategory)
+  }
+
+  function updateFileInput(imageSelected){
+    setImageFile(imageSelected)
   }
 
   async function handleForm(event){
@@ -38,7 +43,7 @@ export function Form({ id, dish }) {
         description,
         ingredients
       }
-      const response = await updateDish(dish.id, dishUpdated)
+      const response = await updateDish(dish.id, dishUpdated, imageFile)
 
       if(response.status === 200){
         alert('Prato/Drink atualizado com sucesso!')
@@ -62,7 +67,7 @@ export function Form({ id, dish }) {
       <div className="wrapper-input-top">
         <InputWrapper>
           <Label text="Imagem do prato" htmlFor="imagePlate" />
-          <FileInput name="imagePlate" text="Selecione imagem" />
+          <FileInput name="imagePlate" text="Selecione imagem" updateFileInput={updateFileInput} />
         </InputWrapper>
 
         <InputWrapper>
