@@ -3,6 +3,7 @@ import styled from 'styled-components'
 export const TagsWrapperContainer = styled.div`
   display: flex;
   gap: 1rem;
+  flex-wrap: wrap;
 
   background: ${({ theme }) => theme.colors['dark-800']};
   border-radius: 8px;

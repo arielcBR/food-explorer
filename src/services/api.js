@@ -68,3 +68,14 @@ export async function updateDish(id, dishUpdated, imageFile){
     }
   }
 }
+
+export async function deleteDish(dishId){
+  if(dishId){
+    try { 
+      const response = await api.delete(`/dish/${dishId}`) 
+      return response
+    } catch (error) {
+      console.log(error)
+    }
+  }
+}
