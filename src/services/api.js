@@ -39,6 +39,23 @@ export async function getDish(id) {
     }
 }
 
+export async function getFavoriteDishesByUser(user_id){
+  try {
+    const listOfFavoriteDishes = await api.get(`users/favorites/${user_id}`) 
+    return listOfFavoriteDishes
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+export async function updateFavoriteDish(userId, dishId){
+  try {
+    await api.post('/users/favorites', { userId, dishId })
+  } catch (error) {
+    console.log(error)
+  }
+}
+
 export async function getAllDishes(category){
   try {
     const response = await api.get('/dish/')
@@ -47,6 +64,25 @@ export async function getAllDishes(category){
 
   } catch (error) {
     console.log(error)
+  }
+}
+
+export async function createDish(dish, imageFile){
+  if(dish){
+    try { 
+      const formData = new FormData()
+      formData.append('dishPicture', imageFile)
+      formData.append('bodyDish', JSON.stringify(dish))
+
+      const response = await api.post(`/dish/`, formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+      }) 
+      return response
+    } catch (error) {
+      console.log(error)
+    }
   }
 }
 

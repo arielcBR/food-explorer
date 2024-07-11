@@ -15,14 +15,16 @@ import { Button } from '../../../../components/Button'
 import { QuantityInput } from '../../../../components/QuantityInput'
 import { formatter } from '../../../../utils/Formatter'
 import { useAuth } from '../../../../hooks/AuthContext'
+import { useDishes } from '../../../../hooks/DishesContext'
 
 export function DishCard({dish}) {
-  const [img, setImg] = useState('')
   const { user } = useAuth()
+  const { favoriteDishes, toggleFavoriteDish } = useDishes()
+  const [img, setImg] = useState('')
+  const [isFavorite, setIsFavorite] = useState(false)
   const isAdmin = user ? user.isAdmin : false
 
   const {id, name, description, price, picture} = dish
-  const dishFavorite = false
   const priceFormatted = formatter.currency(price)
 
   async function getPicture() {
@@ -30,9 +32,25 @@ export function DishCard({dish}) {
     setImg(image)
   }
 
+  async function fetchFavorite(){
+    if(favoriteDishes){
+      const isDishInFavoriteList = favoriteDishes.find(item => item.dish_id === id)
+      
+      if(isDishInFavoriteList)
+        setIsFavorite(true)
+      else
+        setIsFavorite(false)
+    }
+  }
+
+  async function toggleFavoriteState(){
+    toggleFavoriteDish(id)
+  }
+
   useEffect(() => {
     getPicture()
-  }, [])
+    fetchFavorite()
+  }, [favoriteDishes])
 
   return (
     <DishCardContainer>
@@ -42,10 +60,10 @@ export function DishCard({dish}) {
           <PencilSimple />
         </IconWrapper>
         : 
-        <IconWrapper to={`/setFavorite`}>
-          <Heart 
-            weight={dishFavorite ? "fill" : "regular"} 
-            className={dishFavorite ? "favorite" : ""} 
+        <IconWrapper onClick={toggleFavoriteState} >
+          <Heart
+            weight={isFavorite ? "fill" : "regular"} 
+            className={isFavorite ? "favorite" : ""} 
           />
         </IconWrapper>
       }

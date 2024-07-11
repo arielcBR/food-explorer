@@ -12,7 +12,11 @@ export function TagsWrapper({ingredients, updateIngredientList}) {
   }
   
   function handleAddIngredient(){
-    updateIngredientList(prev => [...prev, {id: null, name: newIngredient}])
+    const newIngredientObject = {
+      id: new Date(),
+      name: newIngredient
+    }
+    updateIngredientList(prev => [...prev, newIngredientObject])
     setNewIngredient('')
   }
 

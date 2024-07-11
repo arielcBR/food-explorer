@@ -40,7 +40,7 @@ export function EditPlate() {
     <NewPlateContainer>
       <CustomLink to="/" text="voltar" icon="true" />
       <h2>Editar prato</h2>
-      <Form id="plateForm" dish={dish} />
+      <Form id="plateForm" dish={dish} page='update' />
       <ButtonsWrapper>
         <Button 
           as="button"

@@ -7,9 +7,9 @@ import { Textarea } from '../Textarea'
 import { TagsWrapper } from '../TagsWrapper'
 import { Label } from '../Label'
 import { FileInput } from '../FileInput'
-import { updateDish } from '../../services/api'
+import { updateDish, createDish } from '../../services/api'
 
-export function Form({ id, dish }) {
+export function Form({ id, dish, page }) {
   const navigate = useNavigate()
   const [name, setName] = useState('')
   const [category, setCategory] = useState('')
@@ -17,6 +17,7 @@ export function Form({ id, dish }) {
   const [description, setDescription] = useState('')
   const [ingredients, setIngredients] = useState([])
   const [imageFile, setImageFile] = useState('')
+
 
   function updateIngredientList(newList) {
     setIngredients(newList)
@@ -30,7 +31,33 @@ export function Form({ id, dish }) {
     setImageFile(imageSelected)
   }
 
-  async function handleForm(event){
+  async function handleFormCreate(event){
+    event.preventDefault()
+
+    const readyToCreate = confirm('Tem certeza que quer cadastrar?')
+
+    if(readyToCreate) {
+      const dish = {
+        name,
+        category,
+        price,
+        description,
+        ingredients
+      }
+
+      const response = await createDish(dish, imageFile)
+
+      if(response.status === 200){
+        alert('Prato/Drink cadastrado com sucesso!')
+        navigate('/')
+      }
+      else(
+        alert('O cadastro falhou!')
+      )
+    }
+  }
+
+  async function handleFormUpdate(event){
     event.preventDefault()
 
     const readyToUpdate = confirm('Tem certeza que quer seguir com a atualização?')
@@ -53,17 +80,18 @@ export function Form({ id, dish }) {
   }
 
   useEffect(() => {
-    if (dish) {
+    if(dish) {
       setName(dish.name || '')
       setCategory(dish.category || '')
       setPrice(dish.price || '')
       setDescription(dish.description || '')
       setIngredients(dish.ingredients || [])
     }
+
   }, [dish])
 
   return (
-    <FormContainer id={id} onSubmit={handleForm}>
+    <FormContainer id={id} onSubmit={page === 'update' ? handleFormUpdate : handleFormCreate}>
       <div className="wrapper-input-top">
         <InputWrapper>
           <Label text="Imagem do prato" htmlFor="imagePlate" />

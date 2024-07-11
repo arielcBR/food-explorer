@@ -8,7 +8,7 @@ export function NewPlate() {
     <NewPlateContainer>
       <CustomLink to="/" text="voltar" icon="true" />
       <h2>Novo prato</h2>
-      <Form id="plateForm" />
+      <Form id="plateForm" page="create" />
       <Button
         as="button"
         form="plateForm"

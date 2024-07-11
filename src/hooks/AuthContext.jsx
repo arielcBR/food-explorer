@@ -10,17 +10,18 @@ function AuthProvider({ children }) {
 
   async function signIn(email, password) {
     try {
-      const response = await api.post('/sessions', { email, password })
-      const { token, user } = response.data
-      
+      const session = await api.post('/sessions', { email, password })
+      const { token, user } = session.data
+
       localStorage.setItem('@foodexplorer:user', JSON.stringify(user))
-      localStorage.setItem('@foodexplorer:token', JSON.stringify(token))
+      localStorage.setItem('@foodexplorer:token', JSON.stringify(token))  
 
       api.defaults.headers.common.Authorization = `Bearer ${token}`
-      setData({ user, data })
+      setData({ user })
+
     } catch (error) {
-      if (error.response) {
-        alert(error.response.data.message)
+      if (error.session) {
+        alert(error.session.data.message)
       } else alert('Não foi possível entrar!')
     }
   }
