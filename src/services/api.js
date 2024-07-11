@@ -115,3 +115,27 @@ export async function deleteDish(dishId){
     }
   }
 }
+
+export async function getSearch(query){
+  try {
+    if (query && query.length >= 2) {
+      const response = await api.get('/dish/search', {
+        params: {
+          dish: query
+        }
+      });
+
+      if(response.data){
+        return response.data;
+      }
+      else {
+        return []
+      }
+    }
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+
+

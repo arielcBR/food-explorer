@@ -4,6 +4,7 @@ import {
   GradientOverlayLeft,
   GradientOverlayRight,
   StyledSwiper,
+  EmptyDishCard,
 } from './styles'
 import { SwiperSlide } from 'swiper/react'
 import { Pagination, Navigation, A11y } from 'swiper/modules'
@@ -59,11 +60,17 @@ export function Slider({slides}) {
           }
         }}
       >
+        {/* <SwiperSlide>
+          <EmptyDishCard />
+        </SwiperSlide> */}
         {slides.map((slide) => (
           <SwiperSlide key={slide.id}>
             <DishCard dish={slide} />
           </SwiperSlide>
-        ))}    
+        ))}   
+        {/* <SwiperSlide >
+          <EmptyDishCard />
+        </SwiperSlide>  */}
       </StyledSwiper>
 
       <GradientOverlayLeft />

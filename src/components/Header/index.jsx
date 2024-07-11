@@ -28,6 +28,7 @@ export function Header() {
     navigate('/')
   }
 
+
   return (
     <HeaderContainer className="container">
       <HeaderContentMobile>
