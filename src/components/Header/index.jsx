@@ -53,7 +53,7 @@ export function Header() {
           icon={<MagnifyingGlass size={32} />}
         />
         <Button
-          text={isAdmin ? 'Novo prato' : 'Pedidos (0)'}
+          text={isAdmin ? 'Novo prato' : `Pedidos (${cartQuantity})`}
           icon={!isAdmin ? <Receipt /> : null}
           to={isAdmin ? '/admin/newPlate' : '/cart'}
         />
