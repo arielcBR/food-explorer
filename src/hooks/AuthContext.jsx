@@ -44,6 +44,7 @@ function AuthProvider({ children }) {
   async function logout() {
     localStorage.removeItem('@foodexplorer:user')
     localStorage.removeItem('@foodexplorer:token')
+    localStorage.removeItem('@foodexplorer:cartItems')
     setData({})
   }
 

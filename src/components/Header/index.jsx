@@ -11,13 +11,15 @@ import { InputWithIcon } from '../InputWithIcon'
 import { Button } from '../Button'
 import { useMenu } from '../../hooks/MenuContext'
 import { useAuth } from '../../hooks/AuthContext'
+import { useCart } from '../../hooks/CartContext'
 import { useNavigate } from 'react-router-dom'
 
 export function Header() {
-  const navigate = useNavigate()
   const { user, logout } = useAuth()
-  const isAdmin = user ? user.isAdmin : false
   const { statusMobileMenu } = useMenu()
+  const { cartQuantity } = useCart()
+  const navigate = useNavigate()
+  const isAdmin = user ? user.isAdmin : false
 
   function handleOpenMenu() {
     statusMobileMenu(true)
@@ -28,7 +30,6 @@ export function Header() {
     navigate('/')
   }
 
-
   return (
     <HeaderContainer className="container">
       <HeaderContentMobile>
@@ -37,7 +38,10 @@ export function Header() {
         {!isAdmin && (
           <OrderWrapper>
             <Receipt size={32} />
-            <AmountOfOrders>5</AmountOfOrders>
+            {cartQuantity && cartQuantity >= 1 
+              ? <AmountOfOrders>{cartQuantity}</AmountOfOrders>
+              : null
+            }
           </OrderWrapper>
         )}
       </HeaderContentMobile>

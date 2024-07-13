@@ -16,10 +16,12 @@ import { QuantityInput } from '../../../../components/QuantityInput'
 import { formatter } from '../../../../utils/Formatter'
 import { useAuth } from '../../../../hooks/AuthContext'
 import { useDishes } from '../../../../hooks/DishesContext'
+import { useCart } from '../../../../hooks/CartContext'
 
 export function DishCard({dish}) {
   const { user } = useAuth()
   const { favoriteDishes, toggleFavoriteDish } = useDishes()
+  const { addItemToCart } = useCart()
   const [quantity, setQuantity] = useState(1)
   const [img, setImg] = useState('')
   const [isFavorite, setIsFavorite] = useState(false)
@@ -54,6 +56,11 @@ export function DishCard({dish}) {
 
   function handleDecrement() {
     setQuantity((prev) => prev - 1)
+  }
+
+  function handleAddToCart() {
+    const itemToAdd = { ...dish, quantity }
+    addItemToCart(itemToAdd)
   }
 
   useEffect(() => {
@@ -91,7 +98,11 @@ export function DishCard({dish}) {
             onDecrement={handleDecrement}
             quantity={quantity} 
           />
-          <Button variant="medium" text="Incluir" />
+          <Button 
+            variant="medium" 
+            text="Incluir" 
+            onClick={handleAddToCart}
+          />
         </IncludeDishWrapper>
       }
     </DishCardContainer>
