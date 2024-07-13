@@ -9,7 +9,7 @@ import { Logo } from '../../components/Logo'
 import { Receipt, List, MagnifyingGlass, SignOut } from 'phosphor-react'
 import { InputWithIcon } from '../InputWithIcon'
 import { Button } from '../Button'
-import { useMenu } from '../../context/MenuContext'
+import { useMenu } from '../../hooks/MenuContext'
 import { useAuth } from '../../hooks/AuthContext'
 import { useNavigate } from 'react-router-dom'
 

@@ -3,7 +3,7 @@ import { CustomLink } from '../CustomLink'
 import { InputWithIcon } from '../InputWithIcon'
 import { Footer } from '../Footer'
 import { MagnifyingGlass, X } from 'phosphor-react'
-import { useMenu } from '../../context/MenuContext'
+import { useMenu } from '../../hooks/MenuContext'
 import { useAuth } from '../../hooks/AuthContext'
 
 export function MenuMobile() {

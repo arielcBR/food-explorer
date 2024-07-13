@@ -1,7 +1,7 @@
 import { InputWrapper, InputStyled } from './styles'
 import { useEffect, useState } from 'react'
 import { useDishes } from '../../hooks/DishesContext'
-import { useMenu } from '../../context/MenuContext'
+import { useMenu } from '../../hooks/MenuContext'
 import { useLocation, useNavigate } from 'react-router-dom'
 
 export function InputWithIcon({

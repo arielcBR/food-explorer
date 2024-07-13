@@ -17,12 +17,21 @@ import { useParams } from 'react-router-dom'
 export function Plate() {
   const { dishId } = useParams()
   const [dish, setDish] = useState({})
+  const [quantity, setQuantity] = useState(1)
   const { user } = useAuth()
   const isAdmin = user ? user.isAdmin : false
 
   async function getDishDetails() {
     const response = await getDish(dishId)
     setDish(response)
+  }
+
+  function handleIncrement() {
+    setQuantity((prev) => prev + 1)
+  }
+
+  function handleDecrement() {
+    setQuantity((prev) => prev - 1)
   }
     
   useEffect(() => {
@@ -50,8 +59,12 @@ export function Plate() {
               ? <Button to={`/admin/editPlate/${dishId}`} text="Editar prato" />
               : (
               <div>
-                <QuantityInput />
-                <Button icon={<Receipt />} text={`Pedir - R$${dish.price}`} />
+                <QuantityInput 
+                  onIncrement={handleIncrement}
+                  onDecrement={handleDecrement}
+                  quantity={quantity} 
+                />
+                <Button icon={<Receipt />} text={`Pedir - R$${dish.price * quantity}`} />
               </div>
             )}
           </PlateFooter>

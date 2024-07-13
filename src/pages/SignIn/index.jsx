@@ -6,7 +6,7 @@ import { Logo } from '../../components/Logo'
 import { Button } from '../../components/Button'
 import { CustomLink } from '../../components/CustomLink'
 import { useAuth } from '../../hooks/AuthContext'
-import { useMenu } from '../../context/MenuContext'
+import { useMenu } from '../../hooks/MenuContext'
 
 export function SignIn() {
   const { statusMobileMenu } = useMenu()

@@ -20,6 +20,7 @@ import { useDishes } from '../../../../hooks/DishesContext'
 export function DishCard({dish}) {
   const { user } = useAuth()
   const { favoriteDishes, toggleFavoriteDish } = useDishes()
+  const [quantity, setQuantity] = useState(1)
   const [img, setImg] = useState('')
   const [isFavorite, setIsFavorite] = useState(false)
   const isAdmin = user ? user.isAdmin : false
@@ -45,6 +46,14 @@ export function DishCard({dish}) {
 
   async function toggleFavoriteState(){
     toggleFavoriteDish(id)
+  }
+
+  function handleIncrement() {
+    setQuantity((prev) => prev + 1)
+  }
+
+  function handleDecrement() {
+    setQuantity((prev) => prev - 1)
   }
 
   useEffect(() => {
@@ -77,7 +86,11 @@ export function DishCard({dish}) {
 
       {!isAdmin &&
         <IncludeDishWrapper>
-          <QuantityInput />
+          <QuantityInput 
+            onIncrement={handleIncrement}
+            onDecrement={handleDecrement}
+            quantity={quantity} 
+          />
           <Button variant="medium" text="Incluir" />
         </IncludeDishWrapper>
       }
