@@ -41,7 +41,7 @@ export const IconWrapper = styled(Link)`
   }
 
   .favorite {
-    color: red;
+    color: ${({ theme }) => theme.colors['light-300']};;
   }
 `
 

@@ -35,11 +35,11 @@ export function MenuMobile() {
             <li onClick={handleCloseMenu} >
               <CustomLink to="/" text="Inicio" />
             </li>
-            {user && user.isAdmin && (
+            {user && user.isAdmin ? (
               <li onClick={handleCloseMenu} >
                 <CustomLink to="/admin/newPlate" text="Novo prato" />
               </li>
-            )}
+            ) : null}
             <li onClick={handleLogout}>
               <CustomLink text="Sair" />
             </li>
