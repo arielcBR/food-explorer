@@ -11,6 +11,7 @@ export function EditPlate() {
   const navigate = useNavigate()
   const { dishId } = useParams()
   const [dish, setDish] = useState({})
+  const [enable, setEnable] = useState(false)
 
   async function getDishDetails() {
     const response = await getDish(dishId)
@@ -30,17 +31,21 @@ export function EditPlate() {
     }
 
   }
+
+  function setButtonEnable(state) {
+    setEnable(state)
+  }
     
   useEffect(() => {
     getDishDetails()
   },[])
-
+  
 
   return (
     <NewPlateContainer>
       <CustomLink to="/" text="voltar" icon="true" />
       <h2>Editar prato</h2>
-      <Form id="plateForm" dish={dish} page='update' />
+      <Form id="plateForm" dish={dish} page='update' setButtonEnable={setButtonEnable} />
       <ButtonsWrapper>
         <Button 
           as="button"
@@ -55,6 +60,7 @@ export function EditPlate() {
           form="plateForm"
           type="submit"
           text="Salvar alterações"
+          disabled={enable}
         />
       </ButtonsWrapper>
     </NewPlateContainer>

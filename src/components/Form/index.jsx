@@ -9,7 +9,7 @@ import { Label } from '../Label'
 import { FileInput } from '../FileInput'
 import { updateDish, createDish } from '../../services/api'
 
-export function Form({ id, dish, page }) {
+export function Form({ id, dish, page, setButtonEnable }) {
   const navigate = useNavigate()
   const [name, setName] = useState('')
   const [category, setCategory] = useState('')
@@ -17,7 +17,6 @@ export function Form({ id, dish, page }) {
   const [description, setDescription] = useState('')
   const [ingredients, setIngredients] = useState([])
   const [imageFile, setImageFile] = useState('')
-
 
   function updateIngredientList(newList) {
     setIngredients(newList)
@@ -87,8 +86,12 @@ export function Form({ id, dish, page }) {
       setDescription(dish.description || '')
       setIngredients(dish.ingredients || [])
     }
-
   }, [dish])
+
+  useEffect(() => {
+    const isFormInvalid = !name || !category || !price || description.length <= 15
+    setButtonEnable(isFormInvalid)
+  }, [name, category, price, description, setButtonEnable])
 
   return (
     <FormContainer id={id} onSubmit={page === 'update' ? handleFormUpdate : handleFormCreate}>
