@@ -32,8 +32,11 @@ export function MenuMobile() {
         />
         <nav>
           <ul>
-            {user.isAdmin && (
-              <li>
+            <li onClick={handleCloseMenu} >
+              <CustomLink to="/" text="Inicio" />
+            </li>
+            {user && user.isAdmin && (
+              <li onClick={handleCloseMenu} >
                 <CustomLink to="/admin/newPlate" text="Novo prato" />
               </li>
             )}

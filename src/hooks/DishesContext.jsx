@@ -1,12 +1,13 @@
 import { createContext, useContext, useEffect, useState } from 'react';
 import { useAuth } from './AuthContext'
-import { getFavoriteDishesByUser, updateFavoriteDish } from '../services/api'
+import { getFavoriteDishesByUser, updateFavoriteDish, getSearchDishes } from '../services/api'
 
 const DishesContext = createContext({})
 
 function DishesProvider({ children }) {
   const { user } = useAuth()
   const [favoriteDishes, setFavoriteDishes] = useState([])
+  const [resultSearch, setResultSearch] = useState([])
   
   async function fetchFavorite(){
     if(user && user.id) {
@@ -25,12 +26,17 @@ function DishesProvider({ children }) {
     }
   }
 
+  async function fetchSearchDishes(query){
+    const response = await getSearchDishes(query)
+    setResultSearch(response)
+  }
+
   useEffect( () => {
     fetchFavorite()
   }, [user])
 
   return (
-    <DishesContext.Provider value={{favoriteDishes, toggleFavoriteDish}}>
+    <DishesContext.Provider value={{favoriteDishes, toggleFavoriteDish, fetchSearchDishes, resultSearch}}>
       {children}
     </DishesContext.Provider>
   )

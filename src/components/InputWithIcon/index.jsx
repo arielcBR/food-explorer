@@ -1,6 +1,8 @@
 import { InputWrapper, InputStyled } from './styles'
-import { getSearch } from '../../services/api'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { useDishes } from '../../hooks/DishesContext'
+import { useMenu } from '../../context/MenuContext'
+import { useLocation, useNavigate } from 'react-router-dom'
 
 export function InputWithIcon({
   icon,
@@ -9,14 +11,31 @@ export function InputWithIcon({
   type = 'text',
   ...rest
 }) {
-  const id = name
-
   const [query, setQuery] = useState('')
+  const { fetchSearchDishes } = useDishes()
+  const { statusMobileMenu } = useMenu()
+  const navigate = useNavigate()
+  const location = useLocation()
+
+  function handleKeyDown(event) {
+    if (event.key === 'Enter') {
+      handleOnClick();
+    }
+  }
 
   async function handleOnClick(){
-    const response = await getSearch(query)
-    console.log(response)
+    if(query.length >= 2) {
+      await fetchSearchDishes(query)
+      statusMobileMenu(false)
+      navigate('/search')
+    }
   }
+
+  useEffect(() => {
+    if (location.pathname !== '/search') {
+      setQuery('');
+    }
+  }, [location])
 
   return (
     <InputWrapper>
@@ -24,9 +43,11 @@ export function InputWithIcon({
       <InputStyled
         type={type}
         placeholder={placeholder}
-        id={id}
+        id={name}
         name={name}
+        value={query}
         onChange={event => setQuery(event.target.value) }
+        onKeyDown={handleKeyDown}
         {...rest}
       />
     </InputWrapper>

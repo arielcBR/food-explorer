@@ -4,7 +4,6 @@ import {
   GradientOverlayLeft,
   GradientOverlayRight,
   StyledSwiper,
-  EmptyDishCard,
 } from './styles'
 import { SwiperSlide } from 'swiper/react'
 import { Pagination, Navigation, A11y } from 'swiper/modules'
@@ -21,7 +20,6 @@ export function Slider({slides}) {
     setDesktopViewportWidth(viewportWidth >= 1024)
   }
 
-
   useEffect(() => {
     updateNavigationSwiper()
     window.addEventListener('resize', updateNavigationSwiper)
@@ -34,6 +32,7 @@ export function Slider({slides}) {
         modules={[Navigation, Pagination, A11y]}
         pagination={{ clickable: true }}
         navigation={desktopViewportWidth}  
+        loop
         style={{
           "--swiper-navigation-size": "25px",
         }}     
@@ -60,17 +59,11 @@ export function Slider({slides}) {
           }
         }}
       >
-        {/* <SwiperSlide>
-          <EmptyDishCard />
-        </SwiperSlide> */}
         {slides.map((slide) => (
           <SwiperSlide key={slide.id}>
             <DishCard dish={slide} />
           </SwiperSlide>
         ))}   
-        {/* <SwiperSlide >
-          <EmptyDishCard />
-        </SwiperSlide>  */}
       </StyledSwiper>
 
       <GradientOverlayLeft />

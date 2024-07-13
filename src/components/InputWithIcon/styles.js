@@ -17,7 +17,7 @@ export const InputWrapper = styled.div`
     align-items: center;
     justify-content: flex-end;
     min-width: 1.5rem;
-    width: clamp(1.5rem, 25vw, 50%);
+    width: 50%;
 
     svg {
       height: 1.5rem;

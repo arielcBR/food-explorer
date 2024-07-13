@@ -15,12 +15,12 @@ export const NewPlateContainer = styled.div`
   > a {
     align-self: flex-start;
 
-    font-size: ${({ theme }) => theme.textSizes['text-regular-2']};
+    font-size: ${({ theme }) => theme.textSizes['text-regular-5']};
     margin-bottom: 1.5rem;
 
     > svg {
-      height: 20px;
-      width: 20px;
+      height: 1.25rem;
+      width: 1.25rem;
     }
   }
 
@@ -52,6 +52,10 @@ export const NewPlateContainer = styled.div`
   
     > a {
       font-size: ${({theme}) => theme.textSizes['text-regular-3']};
+      
+      > svg {
+        width: 1.5rem;
+      }
     }
 
     > button { 

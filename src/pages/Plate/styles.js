@@ -9,10 +9,19 @@ export const PlateContainer = styled.div`
   background: ${({ theme }) => theme.colors['dark-400']};
   padding: 2.2rem 0 2.2rem 0;
   margin: 0 auto;
+  min-height: 100vh;
   width: 100%;
 
   > a {
     align-self: flex-start;
+
+    font-size: ${({ theme }) => theme.textSizes['text-regular-3']};
+    margin-bottom: 1.5rem;
+
+    > svg {
+      height: 1.25rem;
+      width: 1.25rem;
+    }
   }
 
   > main {
@@ -32,6 +41,14 @@ export const PlateContainer = styled.div`
   }
 
   @media (min-width: ${DEVICE_BREAKPOINT.LG}) {
+    > a {
+      font-size: ${({theme}) => theme.textSizes['text-regular-3']};
+      
+      > svg {
+        width: 1.5rem;
+      }
+    }
+
     > main {
       display: flex;
       flex-direction: row;
