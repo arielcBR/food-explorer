@@ -1,13 +1,11 @@
 import { createContext, useEffect, useState, useContext } from 'react'
 import { produce } from 'immer'
 
-const ITEMS_STORAGE = '@foodexplorer:cartItems'
-
 const CartContext = createContext({})
 
 export function CartProvider({ children }) {
   const [cartItems, setCartItems] = useState(() => {
-    const storedCartItems = localStorage.getItem(ITEMS_STORAGE)
+    const storedCartItems = localStorage.getItem('@foodexplorer:cart')
 
     if(storedCartItems) {
       return JSON.parse(storedCartItems)
@@ -70,7 +68,7 @@ export function CartProvider({ children }) {
   }
 
   useEffect(() => {
-    localStorage.setItem(ITEMS_STORAGE, JSON.stringify(cartItems))
+    localStorage.setItem('@foodexplorer:cart', JSON.stringify(cartItems))
   }, [cartItems])
 
   return (

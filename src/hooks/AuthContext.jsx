@@ -1,4 +1,5 @@
 import { createContext, useContext, useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 
 import { api } from '../services/api'
@@ -6,6 +7,7 @@ import { api } from '../services/api'
 const AuthContext = createContext({})
 
 function AuthProvider({ children }) {
+  const navigate = useNavigate()
   const [data, setData] = useState({})
 
   async function signIn(email, password) {
@@ -44,8 +46,9 @@ function AuthProvider({ children }) {
   async function logout() {
     localStorage.removeItem('@foodexplorer:user')
     localStorage.removeItem('@foodexplorer:token')
-    localStorage.removeItem('@foodexplorer:cartItems')
+    localStorage.removeItem('@foodexplorer:cart')
     setData({})
+    navigate('/')
   }
 
   useEffect(() => {

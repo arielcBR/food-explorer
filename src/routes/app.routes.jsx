@@ -7,6 +7,7 @@ import { Plate } from '../pages/Plate'
 import { NewPlate } from '../pages/NewPlate'
 import { EditPlate } from '../pages/EditPlate'
 import { Search } from '../pages/Search'
+import { Order } from '../pages/Order'
 
 export function AppRoutes() {
   const { user } = useAuth()
@@ -16,7 +17,8 @@ export function AppRoutes() {
       <Route path="/" element={<DefaultLayout />}>
         <Route path="/" element={<Home />} />
         <Route path="/plate/:dishId" element={<Plate />} />
-        <Route path="/search/" element={<Search />} />
+        <Route path="/search" element={<Search />} />
+        <Route path="/order" element={<Order />} />
       </Route>
 
       {user.isAdmin && (

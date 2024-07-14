@@ -12,7 +12,7 @@ import { Button } from '../Button'
 import { useMenu } from '../../hooks/MenuContext'
 import { useAuth } from '../../hooks/AuthContext'
 import { useCart } from '../../hooks/CartContext'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 export function Header() {
   const { user, logout } = useAuth()
@@ -37,12 +37,15 @@ export function Header() {
         <Logo />
         {!isAdmin && (
           <OrderWrapper>
-            <Receipt size={32} />
-            {cartQuantity && cartQuantity >= 1 
-              ? <AmountOfOrders>{cartQuantity}</AmountOfOrders>
-              : null
-            }
+            <Link to={'/order'} >
+              <Receipt size={32} />
+              {cartQuantity && cartQuantity >= 1 
+                ? <AmountOfOrders>{cartQuantity}</AmountOfOrders>
+                : null
+              }
+            </Link>
           </OrderWrapper>
+          
         )}
       </HeaderContentMobile>
 
@@ -55,7 +58,7 @@ export function Header() {
         <Button
           text={isAdmin ? 'Novo prato' : `Pedidos (${cartQuantity})`}
           icon={!isAdmin ? <Receipt /> : null}
-          to={isAdmin ? '/admin/newPlate' : '/cart'}
+          to={isAdmin ? '/admin/newPlate' : '/order'}
         />
 
         <SignOut onClick={handleLogout} />
