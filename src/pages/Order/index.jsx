@@ -21,8 +21,12 @@ export function Order() {
       if (cartItems && cartItems.length) {
         const cartItemsWithPictures = await Promise.all(
           cartItems.map(async (item) => {
-            const picture = await getDishPicture(item.picture)
-            return { ...item, picture }
+            if (item.picture.startsWith('blob:')) {
+              return item
+            } else {
+              const picture = await getDishPicture(item.picture)
+              return { ...item, picture }
+            }
           }),
         )
         setDishes(cartItemsWithPictures)
