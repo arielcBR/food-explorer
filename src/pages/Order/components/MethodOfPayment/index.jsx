@@ -7,7 +7,7 @@ export function MethodOfPayment() {
   return (
     <MethodOfPaymentContainer>
       <div>
-        <div className='clicked'>
+        <div className="clicked">
           <img src={PixLogo} alt="logo pix" />
           <span>PIX</span>
         </div>

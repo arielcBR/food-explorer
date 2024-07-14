@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react'
 import { getDishPicture } from '../../services/api'
 import { useCart } from '../../hooks/CartContext'
 
-export function Order(){
+export function Order() {
   const { cartItems, cartItemsPrice, deleteItemInCart } = useCart()
   const [dishes, setDishes] = useState([])
   const disableButton = !cartItems.length
@@ -16,29 +16,32 @@ export function Order(){
     deleteItemInCart(id)
   }
 
-  useEffect(()=>{
+  useEffect(() => {
     async function fetchPictures() {
       if (cartItems && cartItems.length) {
-        const cartItemsWithPictures = await Promise.all(cartItems.map(async (item) => {
-          const picture = await getDishPicture(item.picture)
-          return { ...item, picture }
-        }))
+        const cartItemsWithPictures = await Promise.all(
+          cartItems.map(async (item) => {
+            const picture = await getDishPicture(item.picture)
+            return { ...item, picture }
+          }),
+        )
         setDishes(cartItemsWithPictures)
+      } else {
+        setDishes([])
       }
     }
 
     fetchPictures()
   }, [cartItems])
- 
+
   return (
     <SearchContainer>
       <main>
         <MyOrder>
           <h2>Meu pedido</h2>
-          {dishes && dishes.length 
-            ? 
+          {dishes && dishes.length ? (
             <ul>
-              {dishes.map(item => (
+              {dishes.map((item) => (
                 <li key={item.id}>
                   <CardItem>
                     <Trash onClick={() => handleDeleteItem(item.id)} />
@@ -52,12 +55,10 @@ export function Order(){
                     </div>
                   </CardItem>
                 </li>
-              ))
-              }
+              ))}
             </ul>
-            : null
-          }
-            <h3>Total: {formatter.currency(cartItemsPrice)}</h3>
+          ) : null}
+          <h3>Total: {formatter.currency(cartItemsPrice)}</h3>
         </MyOrder>
 
         <Payment>
@@ -65,7 +66,7 @@ export function Order(){
           <MethodOfPayment />
         </Payment>
       </main>
-      <Button as='button' disabled={disableButton} text='Avançar' />
+      <Button as="button" disabled={disableButton} text="Avançar" />
     </SearchContainer>
   )
 }

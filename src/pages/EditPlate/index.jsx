@@ -21,37 +21,40 @@ export function EditPlate() {
   async function handleDeleteDish() {
     const readyToDelete = confirm('Tem certeza que quer deletar?')
 
-    if(readyToDelete){
+    if (readyToDelete) {
       const response = await deleteDish(dishId)
-      
-      if(response.status === 200){
+
+      if (response.status === 200) {
         alert('Prato/Drink deletado com sucesso!')
         navigate('/')
       }
     }
-
   }
 
   function setButtonEnable(state) {
     setEnable(state)
   }
-    
+
   useEffect(() => {
     getDishDetails()
-  },[])
-  
+  }, [])
 
   return (
     <NewPlateContainer>
       <CustomLink to="/" text="voltar" icon="true" />
       <h2>Editar prato</h2>
-      <Form id="plateForm" dish={dish} page='update' setButtonEnable={setButtonEnable} />
+      <Form
+        id="plateForm"
+        dish={dish}
+        page="update"
+        setButtonEnable={setButtonEnable}
+      />
       <ButtonsWrapper>
-        <Button 
+        <Button
           as="button"
           className="deleteButton"
-          variant="normal" 
-          text="Excluir prato"  
+          variant="normal"
+          text="Excluir prato"
           onClick={handleDeleteDish}
         />
         <Button

@@ -11,10 +11,10 @@ import { DishCard } from '../../pages/Home/components/DishCard'
 import { DEVICE_BREAKPOINT } from '../../styles/deviceBreakpoints'
 import 'swiper/swiper-bundle.css'
 
-export function Slider({slides}) {
+export function Slider({ slides }) {
   const [desktopViewportWidth, setDesktopViewportWidth] = useState(false)
 
-  function updateNavigationSwiper () {
+  function updateNavigationSwiper() {
     const viewportWidth = parseInt(window.innerWidth)
 
     setDesktopViewportWidth(viewportWidth >= 1024)
@@ -31,11 +31,11 @@ export function Slider({slides}) {
       <StyledSwiper
         modules={[Navigation, Pagination, A11y]}
         pagination={{ clickable: true }}
-        navigation={desktopViewportWidth}  
+        navigation={desktopViewportWidth}
         loop
         style={{
-          "--swiper-navigation-size": "25px",
-        }}     
+          '--swiper-navigation-size': '25px',
+        }}
         breakpoints={{
           [parseInt(DEVICE_BREAKPOINT.XS)]: {
             slidesPerView: 2,
@@ -56,20 +56,18 @@ export function Slider({slides}) {
           [parseInt(DEVICE_BREAKPOINT.XL)]: {
             slidesPerView: 4,
             spaceBetween: 10,
-          }
+          },
         }}
       >
         {slides.map((slide) => (
           <SwiperSlide key={slide.id}>
             <DishCard dish={slide} />
           </SwiperSlide>
-        ))}   
+        ))}
       </StyledSwiper>
 
       <GradientOverlayLeft />
       <GradientOverlayRight />
-
-      
     </CarouselContainer>
   )
 }

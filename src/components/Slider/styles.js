@@ -1,13 +1,12 @@
 import styled from 'styled-components'
 import { DEVICE_BREAKPOINT } from '../../styles/deviceBreakpoints'
-import { Swiper } from 'swiper/react';
-
+import { Swiper } from 'swiper/react'
 
 export const StyledSwiper = styled(Swiper)`
   .swiper-button-prev,
   .swiper-button-next {
     transition: 0.3s ease-in-out;
-    z-index: 500; 
+    z-index: 500;
   }
 `
 
@@ -25,11 +24,11 @@ const GradientOverlay = styled.div`
   width: 30%;
   z-index: 10;
 
-  @media (min-width: ${DEVICE_BREAKPOINT.LG}){
+  @media (min-width: ${DEVICE_BREAKPOINT.LG}) {
     display: block;
   }
 
-  @media (min-width: ${DEVICE_BREAKPOINT.XL}){
+  @media (min-width: ${DEVICE_BREAKPOINT.XL}) {
     width: 25%;
   }
 `

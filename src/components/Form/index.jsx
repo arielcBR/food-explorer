@@ -22,56 +22,55 @@ export function Form({ id, dish, page, setButtonEnable }) {
     setIngredients(newList)
   }
 
-  function updateCategory(newCategory){
+  function updateCategory(newCategory) {
     setCategory(newCategory)
   }
 
-  function updateFileInput(imageSelected){
+  function updateFileInput(imageSelected) {
     setImageFile(imageSelected)
   }
 
-  async function handleFormCreate(event){
+  async function handleFormCreate(event) {
     event.preventDefault()
 
     const readyToCreate = confirm('Tem certeza que quer cadastrar?')
 
-    if(readyToCreate) {
+    if (readyToCreate) {
       const dish = {
         name,
         category,
         price,
         description,
-        ingredients
+        ingredients,
       }
 
       const response = await createDish(dish, imageFile)
 
-      if(response.status === 200){
+      if (response.status === 200) {
         alert('Prato/Drink cadastrado com sucesso!')
         navigate('/')
-      }
-      else(
-        alert('O cadastro falhou!')
-      )
+      } else alert('O cadastro falhou!')
     }
   }
 
-  async function handleFormUpdate(event){
+  async function handleFormUpdate(event) {
     event.preventDefault()
 
-    const readyToUpdate = confirm('Tem certeza que quer seguir com a atualização?')
+    const readyToUpdate = confirm(
+      'Tem certeza que quer seguir com a atualização?',
+    )
 
-    if(readyToUpdate) {
+    if (readyToUpdate) {
       const dishUpdated = {
         name,
         category,
         price,
         description,
-        ingredients
+        ingredients,
       }
       const response = await updateDish(dish.id, dishUpdated, imageFile)
 
-      if(response.status === 200){
+      if (response.status === 200) {
         alert('Prato/Drink atualizado com sucesso!')
         navigate('/')
       }
@@ -79,7 +78,7 @@ export function Form({ id, dish, page, setButtonEnable }) {
   }
 
   useEffect(() => {
-    if(dish) {
+    if (dish) {
       setName(dish.name || '')
       setCategory(dish.category || '')
       setPrice(dish.price || '')
@@ -89,23 +88,31 @@ export function Form({ id, dish, page, setButtonEnable }) {
   }, [dish])
 
   useEffect(() => {
-    const isFormInvalid = !name || !category || !price || description.length <= 15
+    const isFormInvalid =
+      !name || !category || !price || description.length <= 15
     setButtonEnable(isFormInvalid)
   }, [name, category, price, description, setButtonEnable])
 
   return (
-    <FormContainer id={id} onSubmit={page === 'update' ? handleFormUpdate : handleFormCreate}>
+    <FormContainer
+      id={id}
+      onSubmit={page === 'update' ? handleFormUpdate : handleFormCreate}
+    >
       <div className="wrapper-input-top">
         <InputWrapper>
           <Label text="Imagem do prato" htmlFor="imagePlate" />
-          <FileInput name="imagePlate" text="Selecione imagem" updateFileInput={updateFileInput} />
+          <FileInput
+            name="imagePlate"
+            text="Selecione imagem"
+            updateFileInput={updateFileInput}
+          />
         </InputWrapper>
 
         <InputWrapper>
           <Label text="Nome" htmlFor="name" />
-          <Input 
-            name="name" 
-            placeholder="Ex.: Salada Ceasar" 
+          <Input
+            name="name"
+            placeholder="Ex.: Salada Ceasar"
             onChange={(event) => setName(event.target.value)}
             value={name}
           />
@@ -113,24 +120,31 @@ export function Form({ id, dish, page, setButtonEnable }) {
 
         <InputWrapper>
           <Label text="Categoria" htmlFor="category" />
-          <Select name="category" category={category} updateCategory={updateCategory} />
+          <Select
+            name="category"
+            category={category}
+            updateCategory={updateCategory}
+          />
         </InputWrapper>
       </div>
 
       <div className="wrapper-input-middle">
         <InputWrapper>
           <Label text="Ingredientes" htmlFor="ingredients" />
-          <TagsWrapper ingredients={ingredients} updateIngredientList={updateIngredientList} />
+          <TagsWrapper
+            ingredients={ingredients}
+            updateIngredientList={updateIngredientList}
+          />
         </InputWrapper>
 
         <InputWrapper>
           <Label text="Preço" htmlFor="price" />
-          <Input 
-            type="number" 
-            name="price" 
-            placeholder="R$ 00,00" 
+          <Input
+            type="number"
+            name="price"
+            placeholder="R$ 00,00"
             onChange={(event) => setPrice(event.target.value)}
-            value={price}  
+            value={price}
           />
         </InputWrapper>
       </div>
@@ -142,7 +156,7 @@ export function Form({ id, dish, page, setButtonEnable }) {
             name="description"
             placeholder="Fale brevemente sobre o prato, seus ingredientes e composição"
             onChange={(event) => setDescription(event.target.value)}
-            value={description} 
+            value={description}
           />
         </InputWrapper>
       </div>

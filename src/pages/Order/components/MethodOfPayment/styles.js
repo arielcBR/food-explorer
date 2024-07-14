@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const MethodOfPaymentContainer = styled.div`
   display: flex;
@@ -7,10 +7,10 @@ export const MethodOfPaymentContainer = styled.div`
   border-radius: 8px;
   border: 1px solid ${({ theme }) => theme.colors['light-600']};
   margin-top: 1rem;
-  max-width: 36rem;;
+  max-width: 36rem;
   width: 100%;
 
-    > div:nth-of-type(1) {
+  > div:nth-of-type(1) {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -31,8 +31,8 @@ export const MethodOfPaymentContainer = styled.div`
       padding: 1.25rem;
       width: 50%;
 
-      
-      > svg, img {
+      > svg,
+      img {
         color: ${({ theme }) => theme.colors['light-100']};
         height: 1.5rem;
         width: 1.5rem;
@@ -44,7 +44,7 @@ export const MethodOfPaymentContainer = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    
+
     padding: 2.9375rem 8.125rem;
 
     > img {
@@ -55,6 +55,5 @@ export const MethodOfPaymentContainer = styled.div`
 
   .clicked {
     background: ${({ theme }) => theme.colors['dark-800']} !important;
-  } 
-
+  }
 `

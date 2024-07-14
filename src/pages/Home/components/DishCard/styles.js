@@ -19,7 +19,7 @@ export const DishCardContainer = styled.div`
   min-height: 20rem;
   width: clamp(12.5rem, 25vw, 15.5rem);
 
-  @media (max-width: ${DEVICE_BREAKPOINT.LG}){
+  @media (max-width: ${DEVICE_BREAKPOINT.LG}) {
     min-height: 16rem;
   }
 `
@@ -41,7 +41,7 @@ export const IconWrapper = styled(Link)`
   }
 
   .favorite {
-    color: ${({ theme }) => theme.colors['light-300']};;
+    color: ${({ theme }) => theme.colors['light-300']};
   }
 `
 
@@ -53,7 +53,7 @@ export const DishName = styled.p`
   text-align: center;
   text-transform: capitalize;
 
-  @media (min-width:${DEVICE_BREAKPOINT.LG}){
+  @media (min-width: ${DEVICE_BREAKPOINT.LG}) {
     font-size: ${({ theme }) => theme.textSizes['text-regular-3']};
     font-weight: 700;
   }
@@ -63,22 +63,22 @@ export const DishImage = styled.img`
   height: 5.5rem;
   width: 5.5rem;
 
-  @media (min-width:${DEVICE_BREAKPOINT.SM}){
+  @media (min-width: ${DEVICE_BREAKPOINT.SM}) {
     height: 6.25rem;
     width: 6.25rem;
   }
 
-  @media (min-width:${DEVICE_BREAKPOINT.MD}){
+  @media (min-width: ${DEVICE_BREAKPOINT.MD}) {
     height: 7rem;
     width: 7rem;
   }
 
-  @media (min-width:${DEVICE_BREAKPOINT.LG}){
+  @media (min-width: ${DEVICE_BREAKPOINT.LG}) {
     height: 8.5rem;
     width: 8.5rem;
   }
 
-  @media (min-width:${DEVICE_BREAKPOINT.XL}){
+  @media (min-width: ${DEVICE_BREAKPOINT.XL}) {
     height: 11rem;
     width: 11rem;
   }
@@ -92,7 +92,7 @@ export const DishDescription = styled.p`
   line-height: 160%;
   text-align: center;
 
-  @media (max-width:${DEVICE_BREAKPOINT.LG}){
+  @media (max-width: ${DEVICE_BREAKPOINT.LG}) {
     display: none;
   }
 `
@@ -102,7 +102,7 @@ export const DishPrice = styled.p`
   font-family: ${({ theme }) => theme.fonts.roboto};
   font-size: ${({ theme }) => theme.textSizes['text-regular-2']};
 
-  @media (min-width:${DEVICE_BREAKPOINT.LG}){
+  @media (min-width: ${DEVICE_BREAKPOINT.LG}) {
     font-size: ${({ theme }) => theme.textSizes['text-regular-3']};
   }
 `
@@ -118,9 +118,9 @@ export const IncludeDishWrapper = styled.div`
     max-width: 6.25rem;
   }
 
-  @media (max-width: ${DEVICE_BREAKPOINT.LG}){
+  @media (max-width: ${DEVICE_BREAKPOINT.LG}) {
     grid-template-columns: 1fr;
-    grid-template-rows: auto auto; 
+    grid-template-rows: auto auto;
     grid-row-gap: 1rem;
   }
 `

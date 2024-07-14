@@ -14,9 +14,9 @@ export function DefaultLayout() {
       {!menuVisible && (
         <>
           <Header />
-            <Content className='container'>
-              <Outlet />
-            </Content>
+          <Content className="container">
+            <Outlet />
+          </Content>
           <Footer />
         </>
       )}

@@ -18,7 +18,7 @@ import { useAuth } from '../../../../hooks/AuthContext'
 import { useDishes } from '../../../../hooks/DishesContext'
 import { useCart } from '../../../../hooks/CartContext'
 
-export function DishCard({dish}) {
+export function DishCard({ dish }) {
   const { user } = useAuth()
   const { favoriteDishes, toggleFavoriteDish } = useDishes()
   const { addItemToCart } = useCart()
@@ -27,7 +27,7 @@ export function DishCard({dish}) {
   const [isFavorite, setIsFavorite] = useState(false)
   const isAdmin = user ? user.isAdmin : false
 
-  const {id, name, description, price, picture} = dish
+  const { id, name, description, price, picture } = dish
   const priceFormatted = formatter.currency(price)
 
   async function getPicture() {
@@ -35,18 +35,18 @@ export function DishCard({dish}) {
     setImg(image)
   }
 
-  async function fetchFavorite(){
-    if(favoriteDishes){
-      const isDishInFavoriteList = favoriteDishes.find(item => item.dish_id === id)
-      
-      if(isDishInFavoriteList)
-        setIsFavorite(true)
-      else
-        setIsFavorite(false)
+  async function fetchFavorite() {
+    if (favoriteDishes) {
+      const isDishInFavoriteList = favoriteDishes.find(
+        (item) => item.dish_id === id,
+      )
+
+      if (isDishInFavoriteList) setIsFavorite(true)
+      else setIsFavorite(false)
     }
   }
 
-  async function toggleFavoriteState(){
+  async function toggleFavoriteState() {
     toggleFavoriteDish(id)
   }
 
@@ -70,19 +70,18 @@ export function DishCard({dish}) {
 
   return (
     <DishCardContainer>
-      {isAdmin 
-        ? 
+      {isAdmin ? (
         <IconWrapper to={`/admin/editPlate/${id}`}>
           <PencilSimple />
         </IconWrapper>
-        : 
-        <IconWrapper onClick={toggleFavoriteState} >
+      ) : (
+        <IconWrapper onClick={toggleFavoriteState}>
           <Heart
-            weight={isFavorite ? "fill" : "regular"} 
-            className={isFavorite ? "favorite" : ""} 
+            weight={isFavorite ? 'fill' : 'regular'}
+            className={isFavorite ? 'favorite' : ''}
           />
         </IconWrapper>
-      }
+      )}
 
       <Link to={`/plate/${id}`}>
         <DishImage src={img} />
@@ -91,20 +90,16 @@ export function DishCard({dish}) {
       <DishDescription>{description}'</DishDescription>
       <DishPrice>{priceFormatted}</DishPrice>
 
-      {!isAdmin &&
+      {!isAdmin && (
         <IncludeDishWrapper>
-          <QuantityInput 
+          <QuantityInput
             onIncrement={handleIncrement}
             onDecrement={handleDecrement}
-            quantity={quantity} 
+            quantity={quantity}
           />
-          <Button 
-            variant="medium" 
-            text="Incluir" 
-            onClick={handleAddToCart}
-          />
+          <Button variant="medium" text="Incluir" onClick={handleAddToCart} />
         </IncludeDishWrapper>
-      }
+      )}
     </DishCardContainer>
   )
 }

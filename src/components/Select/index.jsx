@@ -15,16 +15,20 @@ export function Select({ name, category, updateCategory }) {
     setSelectedValue(category || '')
   }, [category])
 
-  return(
+  return (
     <SelectWrapper>
-      <SelectStyled id={name} name={name} value={selectedValue} onChange={handleChange} >
+      <SelectStyled
+        id={name}
+        name={name}
+        value={selectedValue}
+        onChange={handleChange}
+      >
         <option value="">Selecione uma categoria</option>
-        <option value="meal" >Refeição</option>
-        <option value="drink" >Bebidas</option>
-        <option value="dessert" >Sobremesas</option>
+        <option value="meal">Refeição</option>
+        <option value="drink">Bebidas</option>
+        <option value="dessert">Sobremesas</option>
       </SelectStyled>
       <CaretDown />
     </SelectWrapper>
   )
 }
-

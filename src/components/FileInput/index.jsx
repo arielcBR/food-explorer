@@ -2,9 +2,8 @@ import { FileInputContainer } from './styles'
 import { UploadSimple } from 'phosphor-react'
 
 export function FileInput({ text, name, updateFileInput }) {
-
-  function handleOnChangeInput(event){
-    const imgSelected = event.target.files[0] 
+  function handleOnChangeInput(event) {
+    const imgSelected = event.target.files[0]
     updateFileInput(imgSelected)
   }
 
@@ -12,7 +11,7 @@ export function FileInput({ text, name, updateFileInput }) {
     <FileInputContainer>
       <UploadSimple />
       <span>{text}</span>
-      <input type="file" name={name} id={name} onChange={handleOnChangeInput}/>
+      <input type="file" name={name} id={name} onChange={handleOnChangeInput} />
     </FileInputContainer>
   )
 }

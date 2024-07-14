@@ -5,10 +5,9 @@ export const QuantityInputContainer = styled.div`
   align-items: center;
   justify-content: space-between;
   gap: 0.875rem;
-  
+
   background: ${({ theme }) => theme.colors['dark-200']};
   width: 100%;
-
 `
 
 export const Quantity = styled.span`

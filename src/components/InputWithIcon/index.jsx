@@ -19,12 +19,12 @@ export function InputWithIcon({
 
   function handleKeyDown(event) {
     if (event.key === 'Enter') {
-      handleOnClick();
+      handleOnClick()
     }
   }
 
-  async function handleOnClick(){
-    if(query.length >= 2) {
+  async function handleOnClick() {
+    if (query.length >= 2) {
       await fetchSearchDishes(query)
       statusMobileMenu(false)
       navigate('/search')
@@ -33,20 +33,20 @@ export function InputWithIcon({
 
   useEffect(() => {
     if (location.pathname !== '/search') {
-      setQuery('');
+      setQuery('')
     }
   }, [location])
 
   return (
     <InputWrapper>
-      <div onClick={handleOnClick} >{icon}</div>
+      <div onClick={handleOnClick}>{icon}</div>
       <InputStyled
         type={type}
         placeholder={placeholder}
         id={name}
         name={name}
         value={query}
-        onChange={event => setQuery(event.target.value) }
+        onChange={(event) => setQuery(event.target.value)}
         onKeyDown={handleKeyDown}
         {...rest}
       />

@@ -3,22 +3,23 @@ import axios from 'axios'
 const URL_SERVER = 'http://localhost:4000'
 
 export const api = axios.create({
-  baseURL: URL_SERVER
+  baseURL: URL_SERVER,
 })
 
-
-api.interceptors.request.use(config => {
-  const token = JSON.parse(localStorage.getItem('@foodexplorer:token'));
+api.interceptors.request.use((config) => {
+  const token = JSON.parse(localStorage.getItem('@foodexplorer:token'))
 
   if (token) {
-    config.headers.Authorization = `Bearer ${token}`;
+    config.headers.Authorization = `Bearer ${token}`
   }
-  return config;
-});
+  return config
+})
 
 export async function getDishPicture(picture) {
   try {
-    const response = await api.get(`/files/${picture}`, { responseType: 'blob' })
+    const response = await api.get(`/files/${picture}`, {
+      responseType: 'blob',
+    })
     const imageBlob = response.data
     const imageObjectURL = URL.createObjectURL(imageBlob)
     return imageObjectURL
@@ -28,27 +29,26 @@ export async function getDishPicture(picture) {
 }
 
 export async function getDish(id) {
-    try {
-      const response = await api.get(`/dish/${id}`)                        
-      const dish = response.data.dish
-      dish.picture = await getDishPicture(dish.picture)
-      return dish
-      
-    } catch (error) {
-      console.log(error)
-    }
+  try {
+    const response = await api.get(`/dish/${id}`)
+    const dish = response.data.dish
+    dish.picture = await getDishPicture(dish.picture)
+    return dish
+  } catch (error) {
+    console.log(error)
+  }
 }
 
-export async function getFavoriteDishesByUser(user_id){
+export async function getFavoriteDishesByUser(userId) {
   try {
-    const listOfFavoriteDishes = await api.get(`users/favorites/${user_id}`) 
+    const listOfFavoriteDishes = await api.get(`users/favorites/${userId}`)
     return listOfFavoriteDishes
   } catch (error) {
     console.log(error)
   }
 }
 
-export async function updateFavoriteDish(userId, dishId){
+export async function updateFavoriteDish(userId, dishId) {
   try {
     await api.post('/users/favorites', { userId, dishId })
   } catch (error) {
@@ -56,29 +56,30 @@ export async function updateFavoriteDish(userId, dishId){
   }
 }
 
-export async function getAllDishes(category){
+export async function getAllDishes(category) {
   try {
     const response = await api.get('/dish/')
-    const dishesFiltered = response.data.dishes.filter((dish) => dish.category === category)
+    const dishesFiltered = response.data.dishes.filter(
+      (dish) => dish.category === category,
+    )
     return dishesFiltered
-
   } catch (error) {
     console.log(error)
   }
 }
 
-export async function createDish(dish, imageFile){
-  if(dish){
-    try { 
+export async function createDish(dish, imageFile) {
+  if (dish) {
+    try {
       const formData = new FormData()
       formData.append('dishPicture', imageFile)
       formData.append('bodyDish', JSON.stringify(dish))
 
       const response = await api.post(`/dish/`, formData, {
         headers: {
-          'Content-Type': 'multipart/form-data'
-        }
-      }) 
+          'Content-Type': 'multipart/form-data',
+        },
+      })
       return response
     } catch (error) {
       console.log(error)
@@ -86,18 +87,18 @@ export async function createDish(dish, imageFile){
   }
 }
 
-export async function updateDish(id, dishUpdated, imageFile){
-  if(dishUpdated && id){
-    try { 
+export async function updateDish(id, dishUpdated, imageFile) {
+  if (dishUpdated && id) {
+    try {
       const formData = new FormData()
       formData.append('dishPicture', imageFile)
       formData.append('updatedDish', JSON.stringify(dishUpdated))
 
       const response = await api.patch(`/dish/${id}`, formData, {
         headers: {
-          'Content-Type': 'multipart/form-data'
-        }
-      }) 
+          'Content-Type': 'multipart/form-data',
+        },
+      })
       return response
     } catch (error) {
       console.log(error)
@@ -105,10 +106,10 @@ export async function updateDish(id, dishUpdated, imageFile){
   }
 }
 
-export async function deleteDish(dishId){
-  if(dishId){
-    try { 
-      const response = await api.delete(`/dish/${dishId}`) 
+export async function deleteDish(dishId) {
+  if (dishId) {
+    try {
+      const response = await api.delete(`/dish/${dishId}`)
       return response
     } catch (error) {
       console.log(error)
@@ -116,25 +117,20 @@ export async function deleteDish(dishId){
   }
 }
 
-export async function getSearchDishes(query){
+export async function getSearchDishes(query) {
   try {
     const response = await api.get('/dish/search', {
       params: {
-        dish: query
-      }
-    });
+        dish: query,
+      },
+    })
 
-    if(response.data){
-      return response.data;
-    }
-    else {
+    if (response.data) {
+      return response.data
+    } else {
       return []
     }
-    
   } catch (error) {
-    console.log(error);
+    console.log(error)
   }
 }
-
-
-

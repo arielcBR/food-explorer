@@ -37,15 +37,13 @@ export function Header() {
         <Logo />
         {!isAdmin && (
           <OrderWrapper>
-            <Link to={'/order'} >
+            <Link to={'/order'}>
               <Receipt size={32} />
-              {cartQuantity && cartQuantity >= 1 
-                ? <AmountOfOrders>{cartQuantity}</AmountOfOrders>
-                : null
-              }
+              {cartQuantity && cartQuantity >= 1 ? (
+                <AmountOfOrders>{cartQuantity}</AmountOfOrders>
+              ) : null}
             </Link>
           </OrderWrapper>
-          
         )}
       </HeaderContentMobile>
 

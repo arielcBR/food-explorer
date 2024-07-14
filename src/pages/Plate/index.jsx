@@ -11,6 +11,7 @@ import { IngredientTag } from './components/IngredientTag'
 import { Button } from '../../components/Button'
 import { QuantityInput } from '../../components/QuantityInput'
 import { useAuth } from '../../hooks/AuthContext'
+import { useCart } from '../../hooks/CartContext'
 import { getDish } from '../../services/api'
 import { useParams } from 'react-router-dom'
 
@@ -19,6 +20,7 @@ export function Plate() {
   const [dish, setDish] = useState({})
   const [quantity, setQuantity] = useState(1)
   const { user } = useAuth()
+  const { addItemToCart } = useCart()
   const isAdmin = user ? user.isAdmin : false
 
   async function getDishDetails() {
@@ -33,14 +35,19 @@ export function Plate() {
   function handleDecrement() {
     setQuantity((prev) => prev - 1)
   }
-    
+
+  function handleAddInCart() {
+    const dishToAdd = { ...dish, quantity }
+    addItemToCart(dishToAdd)
+  }
+
   useEffect(() => {
     getDishDetails()
-  },[])
+  }, [])
 
   return (
     <PlateContainer>
-      <CustomLink to='/' icon="true" text="voltar" />
+      <CustomLink to="/" icon="true" text="voltar" />
       <main>
         <img src={dish.picture} alt="" />
 
@@ -49,22 +56,27 @@ export function Plate() {
             <h2>{dish.name}</h2>
             <p>{dish.description}</p>
             <IngredientTagsWrapper>
-              {dish.ingredients && dish.ingredients.map(ingredient => (
-                <IngredientTag key={ingredient.id} text={ingredient.name} />
-              ))}
+              {dish.ingredients &&
+                dish.ingredients.map((ingredient) => (
+                  <IngredientTag key={ingredient.id} text={ingredient.name} />
+                ))}
             </IngredientTagsWrapper>
           </PlateDetails>
           <PlateFooter>
-            {isAdmin 
-              ? <Button to={`/admin/editPlate/${dishId}`} text="Editar prato" />
-              : (
+            {isAdmin ? (
+              <Button to={`/admin/editPlate/${dishId}`} text="Editar prato" />
+            ) : (
               <div>
-                <QuantityInput 
+                <QuantityInput
                   onIncrement={handleIncrement}
                   onDecrement={handleDecrement}
-                  quantity={quantity} 
+                  quantity={quantity}
                 />
-                <Button icon={<Receipt />} text={`Pedir - R$${dish.price * quantity}`} />
+                <Button
+                  icon={<Receipt />}
+                  text={`Pedir - R$${dish.price * quantity}`}
+                  onClick={handleAddInCart}
+                />
               </div>
             )}
           </PlateFooter>

@@ -58,12 +58,12 @@ export function SignUp() {
           />
         </div>
 
-        <Button 
-          as="button" 
-          type="submit" 
-          text="Criar Conta" 
-          variant="normal" 
-          className="button-submit"  
+        <Button
+          as="button"
+          type="submit"
+          text="Criar Conta"
+          variant="normal"
+          className="button-submit"
         />
 
         <CustomLink to="/" text="Já tenho uma conta" />

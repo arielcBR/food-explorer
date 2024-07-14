@@ -28,15 +28,15 @@ export const SearchContainer = styled.div`
     flex-direction: column;
     justify-content: center;
     gap: 1rem;
-    
+
     max-width: 65rem;
     margin-top: 1.5rem;
-    
+
     width: 100%;
 
     > h2 {
       font-size: ${({ theme }) => theme.textSizes['text-regular-4']};
-    }    
+    }
 
     > ul {
       list-style: none;
@@ -60,7 +60,9 @@ export const CardItem = styled.div`
 
   background: ${({ theme }) => theme.colors['dark-600']};
   border-radius: 8px;
-  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5), 4px 4px 8px rgba(0, 0, 0, 0.5);
+  box-shadow:
+    4px 4px 8px rgba(0, 0, 0, 0.5),
+    4px 4px 8px rgba(0, 0, 0, 0.5);
   color: ${({ theme }) => theme.colors['light-200']};
   padding: 1rem 1rem;
   margin-bottom: 0.5rem;
@@ -113,7 +115,7 @@ export const CardItem = styled.div`
       }
 
       > span:nth-of-type(1) {
-      font-size: ${({ theme }) => theme.textSizes['text-regular-1']};
+        font-size: ${({ theme }) => theme.textSizes['text-regular-1']};
       }
 
       > span:nth-of-type(2) {
@@ -128,7 +130,6 @@ export const CardItem = styled.div`
   }
 
   @media (min-width: ${DEVICE_BREAKPOINT.LG}) {
-
     > div {
       width: 70%;
     }

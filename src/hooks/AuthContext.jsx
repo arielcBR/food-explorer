@@ -1,13 +1,10 @@
 import { createContext, useContext, useState, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
-
 
 import { api } from '../services/api'
 
 const AuthContext = createContext({})
 
 function AuthProvider({ children }) {
-  const navigate = useNavigate()
   const [data, setData] = useState({})
 
   async function signIn(email, password) {
@@ -16,11 +13,10 @@ function AuthProvider({ children }) {
       const { token, user } = session.data
 
       localStorage.setItem('@foodexplorer:user', JSON.stringify(user))
-      localStorage.setItem('@foodexplorer:token', JSON.stringify(token))  
+      localStorage.setItem('@foodexplorer:token', JSON.stringify(token))
 
       api.defaults.headers.common.Authorization = `Bearer ${token}`
       setData({ user })
-
     } catch (error) {
       if (error.session) {
         alert(error.session.data.message)
@@ -30,25 +26,21 @@ function AuthProvider({ children }) {
 
   async function signUp(name, email, password) {
     try {
-      const response = await api.post('/users', {name, email, password})
+      const response = await api.post('/users', { name, email, password })
 
-      if(response.status === 201)
-        alert('Usuário cadastrado com sucesso!')
-    } 
-    catch (error) {
+      if (response.status === 201) alert('Usuário cadastrado com sucesso!')
+    } catch (error) {
       if (error.response) {
         alert(error.response.data.message)
-      } 
+      }
     }
   }
-  
 
   async function logout() {
     localStorage.removeItem('@foodexplorer:user')
     localStorage.removeItem('@foodexplorer:token')
     localStorage.removeItem('@foodexplorer:cart')
     setData({})
-    navigate('/')
   }
 
   useEffect(() => {

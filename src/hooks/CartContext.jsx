@@ -7,7 +7,7 @@ export function CartProvider({ children }) {
   const [cartItems, setCartItems] = useState(() => {
     const storedCartItems = localStorage.getItem('@foodexplorer:cart')
 
-    if(storedCartItems) {
+    if (storedCartItems) {
       return JSON.parse(storedCartItems)
     }
     return []

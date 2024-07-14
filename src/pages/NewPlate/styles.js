@@ -24,7 +24,7 @@ export const NewPlateContainer = styled.div`
     }
   }
 
-    > h2 {
+  > h2 {
     align-self: flex-start;
 
     color: ${({ theme }) => theme.colors['light-300']};
@@ -39,29 +39,28 @@ export const NewPlateContainer = styled.div`
     margin-bottom: 1.5rem;
   }
 
-  > button { 
+  > button {
     max-width: none;
     width: 100%;
   }
 
-  @media (min-width: ${DEVICE_BREAKPOINT.LG}){
+  @media (min-width: ${DEVICE_BREAKPOINT.LG}) {
     & {
       max-width: 80rem;
       padding-top: 3rem;
     }
-  
+
     > a {
-      font-size: ${({theme}) => theme.textSizes['text-regular-3']};
-      
+      font-size: ${({ theme }) => theme.textSizes['text-regular-3']};
+
       > svg {
         width: 1.5rem;
       }
     }
 
-    > button { 
+    > button {
       align-self: flex-end;
       width: 11rem;
     }
   }
-
 `

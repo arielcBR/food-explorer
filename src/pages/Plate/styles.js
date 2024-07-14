@@ -37,13 +37,12 @@ export const PlateContainer = styled.div`
       height: 16.5rem;
       width: 16.5rem;
     }
-    
   }
 
   @media (min-width: ${DEVICE_BREAKPOINT.LG}) {
     > a {
-      font-size: ${({theme}) => theme.textSizes['text-regular-3']};
-      
+      font-size: ${({ theme }) => theme.textSizes['text-regular-3']};
+
       > svg {
         width: 1.5rem;
       }
@@ -53,7 +52,7 @@ export const PlateContainer = styled.div`
       display: flex;
       flex-direction: row;
       align-items: center;
-      justify-content: space-between;  
+      justify-content: space-between;
       gap: 2rem;
 
       max-width: none;
@@ -75,7 +74,6 @@ export const PlateContainer = styled.div`
       }
     }
   }
-
 `
 export const PlateDetails = styled.div`
   display: flex;
@@ -123,7 +121,7 @@ export const IngredientTagsWrapper = styled.div`
   }
 `
 export const PlateFooter = styled.div`
-  > button { 
+  > button {
     width: 100%;
   }
 
@@ -134,10 +132,10 @@ export const PlateFooter = styled.div`
   }
 
   @media (min-width: ${DEVICE_BREAKPOINT.LG}) {
-    > a { 
+    > a {
       width: fit-content;
     }
-    
+
     > div {
       display: flex;
       align-items: center;

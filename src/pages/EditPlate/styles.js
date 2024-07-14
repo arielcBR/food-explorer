@@ -11,7 +11,7 @@ export const ButtonsWrapper = styled.div`
     height: 3rem;
   }
 
-  .deleteButton { 
+  .deleteButton {
     background: ${({ theme }) => theme.colors['dark-800']};
     color: ${({ theme }) => theme.colors['light-100']};
   }

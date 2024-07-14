@@ -32,11 +32,10 @@ export const Tag = styled.span`
     width: 0.85rem;
   }
 
-  > svg:hover{
+  > svg:hover {
     color: ${({ theme }) => theme.colors['light-400']};
   }
 `
-
 
 export const NewTag = styled.div`
   display: flex;
@@ -50,13 +49,13 @@ export const NewTag = styled.div`
   padding: 0.875rem 1rem;
 
   > input {
-    background: ${({ theme }) => theme.colors['dark-800'] };
+    background: ${({ theme }) => theme.colors['dark-800']};
     border: none;
     color: ${({ theme }) => theme.colors['light-500']};
     height: fit-content;
     max-width: 6rem;
   }
- 
+
   > svg {
     cursor: pointer;
     color: ${({ theme }) => theme.colors['light-500']};
@@ -65,7 +64,7 @@ export const NewTag = styled.div`
     width: 0.85rem;
   }
 
-  > svg:hover { 
+  > svg:hover {
     color: ${({ theme }) => theme.colors['light-300']};
   }
 `
