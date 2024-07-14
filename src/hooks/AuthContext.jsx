@@ -1,5 +1,5 @@
 import { createContext, useContext, useState, useEffect } from 'react'
-
+import { notification } from '../utils/Notification.js'
 import { api } from '../services/api'
 
 const AuthContext = createContext({})
@@ -15,12 +15,14 @@ function AuthProvider({ children }) {
       localStorage.setItem('@foodexplorer:user', JSON.stringify(user))
       localStorage.setItem('@foodexplorer:token', JSON.stringify(token))
 
+      if (session.status === 201) {
+        notification.success(`Seja bem-vindo ${user.name}`)
+      }
+
       api.defaults.headers.common.Authorization = `Bearer ${token}`
       setData({ user })
     } catch (error) {
-      if (error.session) {
-        alert(error.session.data.message)
-      } else alert('Não foi possível entrar!')
+      notification.error(error.response.data.message)
     }
   }
 
@@ -28,11 +30,10 @@ function AuthProvider({ children }) {
     try {
       const response = await api.post('/users', { name, email, password })
 
-      if (response.status === 201) alert('Usuário cadastrado com sucesso!')
+      if (response.status === 201)
+        notification.success('Usuário cadastrado com sucesso!')
     } catch (error) {
-      if (error.response) {
-        alert(error.response.data.message)
-      }
+      notification.error(error.response.data.message)
     }
   }
 

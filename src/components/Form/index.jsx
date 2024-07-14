@@ -8,6 +8,7 @@ import { TagsWrapper } from '../TagsWrapper'
 import { Label } from '../Label'
 import { FileInput } from '../FileInput'
 import { updateDish, createDish } from '../../services/api'
+import { notification } from '../../utils/Notification'
 
 export function Form({ id, dish, page, setButtonEnable }) {
   const navigate = useNavigate()
@@ -47,9 +48,9 @@ export function Form({ id, dish, page, setButtonEnable }) {
       const response = await createDish(dish, imageFile)
 
       if (response.status === 200) {
-        alert('Prato/Drink cadastrado com sucesso!')
+        notification.success('Prato/Drink cadastrado com sucesso!')
         navigate('/')
-      } else alert('O cadastro falhou!')
+      } else notification.error('O cadastro falhou!')
     }
   }
 
@@ -71,9 +72,9 @@ export function Form({ id, dish, page, setButtonEnable }) {
       const response = await updateDish(dish.id, dishUpdated, imageFile)
 
       if (response.status === 200) {
-        alert('Prato/Drink atualizado com sucesso!')
+        notification('Prato/Drink atualizado com sucesso!', 'success')
         navigate('/')
-      }
+      } else notification('Algo saiu mal!', 'error')
     }
   }
 

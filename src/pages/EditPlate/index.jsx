@@ -6,6 +6,7 @@ import { CustomLink } from '../../components/CustomLink'
 import { Form } from '../../components/Form'
 import { Button } from '../../components/Button'
 import { getDish, deleteDish } from '../../services/api'
+import { notification } from '../../utils/Notification'
 
 export function EditPlate() {
   const navigate = useNavigate()
@@ -25,9 +26,9 @@ export function EditPlate() {
       const response = await deleteDish(dishId)
 
       if (response.status === 200) {
-        alert('Prato/Drink deletado com sucesso!')
+        notification.success('Prato/Drink deletado com sucesso!')
         navigate('/')
-      }
+      } else notification.error('Erro ao eliminar o item')
     }
   }
 
