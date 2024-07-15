@@ -17,6 +17,7 @@ import { formatter } from '../../../../utils/Formatter'
 import { useAuth } from '../../../../hooks/AuthContext'
 import { useDishes } from '../../../../hooks/DishesContext'
 import { useCart } from '../../../../hooks/CartContext'
+import { notification } from '../../../../utils/Notification'
 
 export function DishCard({ dish }) {
   const { user } = useAuth()
@@ -61,6 +62,7 @@ export function DishCard({ dish }) {
   function handleAddToCart() {
     const itemToAdd = { ...dish, quantity }
     addItemToCart(itemToAdd)
+    notification.success('Item adicionado ao carrinho!')
   }
 
   useEffect(() => {
@@ -87,7 +89,7 @@ export function DishCard({ dish }) {
         <DishImage src={img} />
       </Link>
       <DishName>{name}</DishName>
-      <DishDescription>{description}'</DishDescription>
+      <DishDescription>{description}&apos</DishDescription>
       <DishPrice>{priceFormatted}</DishPrice>
 
       {!isAdmin && (

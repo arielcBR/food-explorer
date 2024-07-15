@@ -14,6 +14,7 @@ import { useAuth } from '../../hooks/AuthContext'
 import { useCart } from '../../hooks/CartContext'
 import { getDish } from '../../services/api'
 import { useParams } from 'react-router-dom'
+import { notification } from '../../utils/Notification'
 
 export function Plate() {
   const { dishId } = useParams()
@@ -39,11 +40,12 @@ export function Plate() {
   function handleAddInCart() {
     const dishToAdd = { ...dish, quantity }
     addItemToCart(dishToAdd)
+    notification.success('Item adicionado ao carrinho!')
   }
 
   useEffect(() => {
     getDishDetails()
-  }, [])
+  })
 
   return (
     <PlateContainer>

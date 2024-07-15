@@ -4,7 +4,7 @@ class Notification {
   config = {
     position: 'top-right',
     autoClose: 3000,
-    hideProgressBar: true,
+    hideProgressBar: false,
     closeOnClick: true,
     pauseOnHover: true,
     theme: 'dark',

@@ -45,15 +45,57 @@ export const MethodOfPaymentContainer = styled.div`
     align-items: center;
     justify-content: center;
 
-    padding: 2.9375rem 8.125rem;
-
     > img {
-      height: 250px;
-      width: 250px;
+      padding: 3rem 1rem;
+      height: 15.625rem;
+      width: 15.625rem;
     }
   }
 
   .clicked {
     background: ${({ theme }) => theme.colors['dark-800']} !important;
+  }
+`
+export const CreditCardForm = styled.form`
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  padding: 3rem 5.6875rem;
+  width: 100%;
+
+  > div {
+    display: flex;
+    gap: 1rem;
+
+    > div {
+      width: calc(50% - 0.5rem);
+    }
+  }
+
+  > button {
+    > svg {
+      height: 2rem;
+      width: 2rem;
+    }
+  }
+`
+
+export const InputWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  > label {
+    font-family: ${({ theme }) => theme.fonts.roboto};
+    color: ${({ theme }) => theme.colors['light-400']};
+  }
+
+  > input {
+    background-color: ${({ theme }) => theme.colors['dark-500']};
+    color: ${({ theme }) => theme.colors['light-100']};
+    border: 1px solid ${({ theme }) => theme.colors['light-100']};
+    border-radius: 5px;
+    padding: 0.75rem 0.875rem;
   }
 `

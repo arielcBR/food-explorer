@@ -6,6 +6,7 @@ import { formatter } from '../../utils/Formatter'
 import { useEffect, useState } from 'react'
 import { getDishPicture } from '../../services/api'
 import { useCart } from '../../hooks/CartContext'
+import { notification } from '../../utils/Notification'
 
 export function Order() {
   const { cartItems, cartItemsPrice, deleteItemInCart } = useCart()
@@ -14,6 +15,7 @@ export function Order() {
 
   function handleDeleteItem(id) {
     deleteItemInCart(id)
+    notification.warning('Item eliminado do pedido!')
   }
 
   useEffect(() => {
