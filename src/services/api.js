@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const URL_SERVER = 'http://localhost:4000'
+const URL_SERVER = 'https://food-explorer-api-pj0v.onrender.com'
 
 export const api = axios.create({
   baseURL: URL_SERVER,
