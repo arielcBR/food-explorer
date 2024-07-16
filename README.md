@@ -60,7 +60,7 @@ $ npm run dev
 
 ## 🔑 Quer ver como a aplicação funciona vista pelo Admin? Use a conta a seguir:
 ```
-e-mail: admin@live.com.com
+e-mail: admin@live.com
 senha: abcde1!
 ```
 
